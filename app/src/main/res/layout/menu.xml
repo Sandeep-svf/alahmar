@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@color/green_bg">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:scaleType="centerCrop"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintHeight_percent="0.5"
+            app:shapeAppearanceOverlay="@style/roundedImageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.1"
+            android:src="@drawable/user_profile2"
+          />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintHeight_percent="0.5"
+            app:shapeAppearanceOverlay="@style/roundedImageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+
+
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/user_name_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:text="Lena Wilson"
+
+                ></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/user_email_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@+id/user_name_layout"
+
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:text="abc@gmail.com"
+
+                ></androidx.appcompat.widget.AppCompatTextView>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:id="@+id/edit_profile_layout"
+                android:background="@drawable/custom_bg5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_email_layout"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintHeight_percent="0.35"
+                app:layout_constraintWidth_percent="0.8"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    android:text="Edit Proifle"
+
+                    ></androidx.appcompat.widget.AppCompatTextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/dashboard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/home_image"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/home"
+                    android:tint="@color/black"
+                    tools:ignore="UseAppTint" />
+
+                <TextView
+                    android:id="@+id/home_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/home_image"
+                    android:layout_toRightOf="@+id/home_image"
+                    android:text="@string/home"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/das_view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+            <RelativeLayout
+                android:id="@+id/event_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/event_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/event_new"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/event_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/event_img"
+                    android:layout_toRightOf="@+id/event_img"
+                    android:text="@string/event"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/das_view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+
+            <RelativeLayout
+                android:id="@+id/community_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/community_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/communnity_new"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/community_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/community_img"
+                    android:layout_toRightOf="@+id/community_img"
+                    android:text="@string/community"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/das_view4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+
+            <RelativeLayout
+                android:id="@+id/donate_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/donate_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/donation_new"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/donate_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/donate_img"
+                    android:layout_toRightOf="@+id/donate_img"
+                    android:text="@string/donate"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/das_view8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+
+            <RelativeLayout
+                android:id="@+id/transection_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/transection_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/transaction"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/transection_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/transection_img"
+                    android:layout_toRightOf="@+id/transection_img"
+                    android:text="@string/trans_history"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/das_view5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+            <RelativeLayout
+                android:id="@+id/setting_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/setting_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/setting"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/setting_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/setting_img"
+                    android:layout_toRightOf="@+id/setting_img"
+                    android:text="@string/change_password"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <View
+                android:id="@+id/das_view6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+
+            <RelativeLayout
+                android:id="@+id/about_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/about_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/about_new"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/about_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/about_img"
+                    android:layout_toRightOf="@+id/about_img"
+                    android:text="@string/about"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/das_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+            <RelativeLayout
+                android:id="@+id/contact_us_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/contact_us_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/profile"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/contact_us_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/contact_us_img"
+                    android:layout_toRightOf="@+id/contact_us_img"
+                    android:text="@string/contact_us"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <View
+                android:id="@+id/das_view9"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+            <RelativeLayout
+                android:id="@+id/logout_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/logout_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/about_new"
+                    app:tint="@color/white_dark" />
+
+                <TextView
+                    android:id="@+id/logout_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/logout_img"
+                    android:layout_toRightOf="@+id/logout_img"
+                    android:text="@string/logout"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

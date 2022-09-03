@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg"
+    android:orientation="vertical"
+    tools:context=".basicAndroidFunction.Fragment.DashboardFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dashboard_img"
+        android:layout_width="match_parent"
+
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/dashboard_img"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHeight_percent="0.3"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Hello"
+        android:textColor="@color/white"
+
+        android:textSize="22dp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02"
+
+        >
+
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Lenna Wilson"
+        android:textColor="@color/white"
+
+        android:textSize="16dp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06"
+
+        >
+
+    </androidx.appcompat.widget.AppCompatTextView>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/user_profile2"
+        app:civ_border_color="@color/green_bg"
+
+        app:civ_border_width="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.12"
+        app:layout_constraintWidth_percent="0.3"
+
+        >
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHeight_percent="0.7"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/event_layout"
+                android:layout_width="0dp"
+
+                android:layout_height="0dp"
+                android:background="@drawable/bg_custom_design9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.8"
+
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:scaleType="fitXY"
+                    android:src="@drawable/event"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintWidth_percent="0.45">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/event"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:layout_constraintVertical_bias="0.75">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/community_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_custom_design9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.8"
+
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/community"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintWidth_percent="0.45">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/community"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:layout_constraintVertical_bias="0.75">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.33"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/forms_layout"
+                android:layout_width="0dp"
+
+                android:layout_height="0dp"
+                android:background="@drawable/bg_custom_design9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.8"
+
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/resume"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintWidth_percent="0.45">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/form"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:layout_constraintVertical_bias="0.75">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/donate_layout"
+                android:layout_width="0dp"
+
+                android:layout_height="0dp"
+                android:background="@drawable/bg_custom_design9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.8"
+
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/donation"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintWidth_percent="0.45">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/donate"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:layout_constraintVertical_bias="0.75">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.33"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/about_us_layout"
+                android:layout_width="0dp"
+
+                android:layout_height="0dp"
+                android:background="@drawable/bg_custom_design9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.8"
+
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:scaleType="fitXY"
+                    android:src="@drawable/event"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintWidth_percent="0.45">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/about_us"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:layout_constraintVertical_bias="0.75">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/about_team_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_custom_design9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.8"
+
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/community"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintWidth_percent="0.45">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/team"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:layout_constraintVertical_bias="0.75">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

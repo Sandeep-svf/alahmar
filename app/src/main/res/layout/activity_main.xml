@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_bg"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:background="@color/black_transparent"
+        app:layout_constraintHeight_percent="0.063"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+
+            app:layout_constraintWidth_percent="0.1"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:src="@drawable/ic_baseline_menu_24"
+            tools:ignore="contentDescription" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+           />
+        <RelativeLayout
+            android:id="@+id/relative_notification"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+         >
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_notification"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_baseline_notifications_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_notification"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:background="@drawable/commentbox"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="0"
+                android:textColor="@color/white"
+
+                android:textSize="10sp" />
+
+
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintHeight_percent="0.9368"
+
+        >
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

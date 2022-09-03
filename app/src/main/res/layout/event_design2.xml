@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_bg"
+
+    android:id="@+id/event_list_layout"
+    android:layout_height="360dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="1"
+        >
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+android:id="@+id/event_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:src="@drawable/group_image2"
+        android:scaleType="centerCrop"
+        app:layout_constraintHeight_percent="0.66"
+
+
+        >
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"
+
+        android:background="@drawable/custom_bg2"
+
+        app:layout_constraintHeight_percent="0.45"
+        >
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_created_at"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white_bg"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:text="SAT, JUN 15 07:30 PM"
+           android:singleLine="true"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintVertical_bias="0.1"
+
+
+
+            >
+
+        </androidx.appcompat.widget.AppCompatTextView>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/event_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:text="We all need push in out life. Guru is best for that."
+            android:singleLine="true"
+            app:layout_constraintWidth_percent="0.9"
+
+            app:layout_constraintVertical_bias="0.3"
+
+
+
+            >
+
+        </androidx.appcompat.widget.AppCompatTextView>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_subheading"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:gravity="center_vertical"
+            android:text="We all need push in out life.We all need push in out life.We all need push in out life.We all need push in out life. We all need push in out life.We all need push in out lifeGuru is best for that. push in out life.We all need push in out lifeGuru is best for that."
+            android:maxLines="4"
+            android:minLines="1"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintVertical_bias="0.75"
+
+
+
+            >
+
+        </androidx.appcompat.widget.AppCompatTextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

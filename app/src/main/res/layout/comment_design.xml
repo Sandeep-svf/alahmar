@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/relative_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/friends_images"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_color="@color/green_bg"
+            app:civ_border_width="1dp" />
+
+        <LinearLayout
+            android:id="@+id/linera_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/friends_images"
+            android:background="@drawable/bubble_message"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/friend_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sandeep Maurya"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/comment_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This is my first comments"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="10"
+    android:id="@+id/ED_layout"
+    android:visibility="gone"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal"
+    >
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:text="Edit"
+        android:id="@+id/edit_comment_layout"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:textStyle="bold"
+
+
+        ></androidx.appcompat.widget.AppCompatTextView>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:text="Delete"
+        android:id="@+id/delete_comment_layout"
+        android:gravity="center_vertical"
+        android:textSize="14dp"
+        android:textStyle="bold"
+
+
+        ></androidx.appcompat.widget.AppCompatTextView>
+</LinearLayout>
+</LinearLayout>

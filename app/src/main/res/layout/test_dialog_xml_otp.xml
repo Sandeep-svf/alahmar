@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/custom_bg"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        >
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/passcode_cardview"
+        android:layout_width="match_parent"
+        app:cardElevation="4dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/border_line_around_edittext"
+       app:cardCornerRadius="4dp"
+app:layout_constraintVertical_bias="0.25"
+
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+
+
+        <in.aabhasjindal.otptextview.OtpTextView
+            android:id="@+id/otpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/green_bg"
+            app:bar_active_color="@color/green_bg"
+            app:bar_enabled="true"
+            app:bar_error_color="@color/red"
+            app:bar_height="1.5dp"
+            app:bar_inactive_color="@color/green_bg"
+            app:bar_margin_bottom="0dp"
+            app:bar_margin_left="0dp"
+            app:bar_margin_right="5dp"
+            app:bar_success_color="@color/green_bg"
+            app:box_margin="0dp"
+            app:height="40dp"
+            app:hide_otp="false"
+            app:layout_constraintBottom_toTopOf="@+id/submit_otp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:length="6"
+            app:otp=""
+            app:otp_text_size="20dp"
+            app:width="40dp" />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/continue_button"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_continue_credentials"
+        android:gravity="center"
+        android:text="@string/continues"
+        android:textAllCaps="false"
+        android:textColor="@drawable/text_color"
+        android:textSize="16dp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78"
+        app:layout_constraintWidth_percent="0.4">
+
+    </androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+</LinearLayout>

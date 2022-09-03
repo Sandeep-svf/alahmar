@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white_bg"
+    tools:context=".basicAndroidFunction.RegisterActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+
+        android:src="@drawable/circal"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.35">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_profile_image"
+        android:layout_width="0dp"
+
+        android:layout_height="0dp"
+        android:src="@drawable/user_profile2"
+        app:civ_border_color="@color/green_bg"
+        app:civ_border_width="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.2"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.1"
+
+        app:layout_constraintWidth_percent="0.35">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/add_image_layout"
+        android:layout_width="0dp"
+
+
+        android:layout_height="0dp"
+        android:src="@drawable/plus"
+        android:tint="@color/yellow_app_theam"
+        app:civ_border_color="@color/green_bg"
+        app:civ_border_width="1dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintHorizontal_bias="0.62"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.23"
+        app:layout_constraintWidth_percent="0.08">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:background="@drawable/custom_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.68"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintWidth_percent="0.9">
+
+
+        <View
+            android:id="@+id/jfsildjfl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/naem_cd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </View>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/naem_cd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:cardCornerRadius="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/email_cd"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.075"
+            app:layout_constraintStart_toStartOf="parent"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/jfsildjfl"
+
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintWidth_percent="0.85"
+
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/user"
+                    android:tint="@color/white_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.7"
+
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.1">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/user_name_edittext_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Usernaem"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/email_cd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:cardCornerRadius="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/phone_number_cd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.075"
+            app:layout_constraintStart_toStartOf="parent"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/naem_cd"
+
+            app:layout_constraintVertical_bias="0.45"
+            app:layout_constraintWidth_percent="0.85"
+
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/email"
+                    android:tint="@color/white_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.7"
+
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.1">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/user_email_edittext_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/phone_number_cd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:cardCornerRadius="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/city_cd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.075"
+            app:layout_constraintStart_toStartOf="parent"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/email_cd"
+
+            app:layout_constraintVertical_bias="0.95"
+            app:layout_constraintWidth_percent="0.85"
+
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/phone_call"
+                    android:tint="@color/white_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.7"
+
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.1">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/phone_number_Edittext_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Phone Number"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/city_cd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardCornerRadius="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/password_cd"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.075"
+            app:layout_constraintStart_toStartOf="parent"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/phone_number_cd"
+
+            app:layout_constraintVertical_bias="0.65"
+            app:layout_constraintWidth_percent="0.85"
+
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/city"
+                    android:tint="@color/white_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.7"
+
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.1">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/city_Edittext_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="City / Town"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/password_cd"
+            android:layout_width="0dp"
+
+            android:layout_height="0dp"
+            app:cardCornerRadius="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/confirm_password_cd"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.075"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/city_cd"
+
+            app:layout_constraintVertical_bias="0.75"
+            app:layout_constraintWidth_percent="0.85"
+
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/lock"
+                    android:tint="@color/white_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.7"
+
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.1">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/password_Edittext_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+
+                    android:gravity="center_vertical"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/confirm_password_cd"
+            android:layout_width="0dp"
+
+            android:layout_height="0dp"
+            app:cardCornerRadius="44dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/register_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.075"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_cd"
+            app:layout_constraintVertical_bias="0.85"
+            app:layout_constraintWidth_percent="0.85"
+
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:src="@drawable/lock"
+                    android:tint="@color/white_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.7"
+
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.1">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/confirm_password_Edittext_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:layout_margin="10dp"
+            android:background="@drawable/ic_continue_credentials"
+            android:gravity="center"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="@drawable/text_color"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/back_to_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_password_cd"
+            app:layout_constraintVertical_bias="0.93"
+            app:layout_constraintWidth_percent="0.4">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/back_to_login"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="Already have an account? Sign in."
+
+
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHeight_percent="0.1"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_button"
+            app:layout_constraintVertical_bias="0.975"
+
+            >
+
+        </androidx.appcompat.widget.AppCompatTextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">alahmar</string>
+    <string name="login">LOGIN</string>
+    <string name="register">REGISTER</string>
+    <string name="home">Home</string>
+    <string name="my_profile">My Profile</string>
+    <string name="event">Event</string>
+    <string name="community">Community</string>
+    <string name="about">About Us</string>
+    <string name="donate">Donate</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="form">Forms</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="comment">     Comment</string>
+    <string name="comment2">Comments</string>
+    <string name="continues">Continue</string>
+    <string name="submit">Submit</string>
+    <string name="status">Status</string>
+    <string name="location">Location</string>
+    <string name="ticket">Ticket</string>
+    <string name="setting">Settings</string>
+    <string name="trans_history">Transaction History</string>
+    <string name="about_us">About Us</string>
+    <string name="team">About Team</string>
+    <string name="logout">Logout</string>
+    <string name="change_password">Change Password</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="update_password">Update Password</string>
+
+</resources>

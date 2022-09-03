@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_bg4"
+    android:id="@+id/daflkjlkdjf"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_bg5"
+        >
+
+
+
+<androidx.appcompat.widget.AppCompatTextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:layout_marginTop="10dp"
+    android:textColor="@color/black"
+    android:textSize="18dp"
+
+    android:id="@+id/community_headline"
+    android:textStyle="bold"
+
+    android:text="Don't be afraid to give up the good to go for the great"
+
+
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+
+    >
+
+</androidx.appcompat.widget.AppCompatTextView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:weightSum="10"
+    android:orientation="horizontal"
+
+    >
+
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+android:layout_weight="6"
+        android:singleLine="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+
+ android:text="published from official page"
+
+        android:layout_marginTop="10dp"
+        >
+
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+android:gravity="end"
+        android:id="@+id/community_post_time"
+        android:text="23 March 2022"
+
+        android:layout_marginTop="10dp"
+        >
+
+    </androidx.appcompat.widget.AppCompatTextView>
+</LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:id="@+id/community_post_image"
+
+        android:layout_marginTop="10dp"
+
+
+        android:src="@drawable/event_enviourment"
+        android:scaleType="centerCrop"
+
+        app:layout_constraintHeight_percent="0.6"
+
+
+        >
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:justificationMode="inter_word"
+
+            android:id="@+id/community_post_description"
+
+android:text="Never Give up on Your Dream, Motivational Speeches
+
+funny motivational speaker never give up
+
+When you show courage in the face of adversity, you change your life and others.
+
+The most provocative motivational speeches in the world won't settle for average and have triumphed through adversity. We are most inspired by people who have experienced difficulty and never give up.
+
+JOIN THE MOVEMENT Subscribe to  Climb Outside Yourself
+Luck is great, but life is meant to be experienced. Sometimes the only way out of stress is through it; face struggle to overcome challenges in life. Many times battle happens to help teach us a lesson. We can either learn from that lesson or deny it. "
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            >
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:weightSum="10"
+
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_weight="5">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/like_color"
+                    android:tint="@color/green_bg"
+
+                    android:layout_marginLeft="10dp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatImageView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                 android:layout_marginLeft="10dp"
+
+                    android:id="@+id/community_no_of_like"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:gravity="end"
+                    android:text="3.9k"
+
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+android:gravity="end"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:id="@+id/community_no_of_comment"
+
+                    android:gravity="end"
+                    android:text="57 comments"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+            </RelativeLayout>
+
+
+
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            >
+
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_weight="5">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/like_empty_color"
+                    android:tint="@color/green_bg"
+app:tint="@color/green_bg"
+                    android:layout_marginLeft="10dp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatImageView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:gravity="end"
+                    android:text="Like"
+
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_toLeftOf="@+id/comment_layout"
+
+                    android:id="@+id/comment_img_layout"
+                    android:src="@drawable/comment"
+                    app:tint="@color/green_bg">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:id="@+id/comment_layout"
+android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:text="comments"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+            </RelativeLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
