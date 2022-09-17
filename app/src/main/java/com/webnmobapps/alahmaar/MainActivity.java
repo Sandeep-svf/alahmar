@@ -38,6 +38,10 @@ import com.webnmobapps.alahmaar.transactionHistory.TransactionHistoryFragment;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -85,6 +89,13 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         finalAccessToken = "Bearer "+accessToken;
 
 
+        List<Character> list = new ArrayList<Character>();
+        Set<Character> unique = new HashSet<Character>();
+        for(char c : "abc".toCharArray()) {
+            list.add(c);
+            unique.add(c);
+        }
+        Log.e("fsdfs",list.get(0).toString());
 
     }
 

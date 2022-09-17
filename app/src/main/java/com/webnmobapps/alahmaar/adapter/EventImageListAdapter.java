@@ -92,7 +92,6 @@ public class EventImageListAdapter extends RecyclerView.Adapter<ImageListViewHol
     private void popup(int position, Context context, String image_link) {
 
         // open popup for show image......
-
         AlertDialog dialogs;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View alertLayout = inflater.inflate(R.layout.test_dialog_xml_otp2, null);
@@ -103,11 +102,10 @@ public class EventImageListAdapter extends RecyclerView.Adapter<ImageListViewHol
         alert.setCancelable(false);
         dialogs = alert.create();
         dialogs.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-      //  dialogs.getWindow().setLayout(((getWidth(context) / 100) * 90), LinearLayout.LayoutParams.MATCH_PARENT);
-        dialogs.getWindow().setLayout(100,100);
+        // dialogs.getWindow().setLayout(((getWidth(context) / 100) * 90), LinearLayout.LayoutParams.MATCH_PARENT);
+       // dialogs.getWindow().setLayout(100,100);
         dialogs.show();
         dialogs.setCanceledOnTouchOutside(true);
-
         Glide.with(context).load(image_link).placeholder(R.drawable.ic_launcher_background).into(image_layout);
     }
 
