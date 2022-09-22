@@ -49,8 +49,8 @@ public class Comment_Adapter extends RecyclerView.Adapter<CommentViewHolder> {
 
         userIdAPI = String.valueOf(communityCommentListResultList.get(position).getId());
         if(userId==userIdAPI)  holder.ED_layout.setVisibility(View.VISIBLE);
-        holder.comment_user_name.setText(communityCommentListResultList.get(position).getHeaddings());
-        holder.comment_user_message.setText(communityCommentListResultList.get(position).getTopicDescription());
+     //   holder.comment_user_name.setText(communityCommentListResultList.get(position).getHeaddings());
+      //  holder.comment_user_message.setText(communityCommentListResultList.get(position).getTopicDescription());
         Glide.with(context).load(API_Client.BASE_IMAGE_URL+communityCommentListResultList.get(position).getImage()).placeholder(R.drawable.ic_launcher_background).into(holder.comment_user_image);
     }
 

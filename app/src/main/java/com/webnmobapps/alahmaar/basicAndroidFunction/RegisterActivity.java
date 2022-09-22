@@ -107,7 +107,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 Dialog addProfileUpdate = new Dialog(RegisterActivity.this);
                 addProfileUpdate.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 addProfileUpdate.setContentView(R.layout.add_profile_update_dialog);
@@ -157,10 +156,6 @@ public class RegisterActivity extends AppCompatActivity {
                             requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
                             addProfileUpdate.dismiss();
                         }
-
-
-
-
 
                     }
                 });
@@ -300,7 +295,7 @@ public class RegisterActivity extends AppCompatActivity {
             pd.setMessage("loading...");
             pd.show();
 
-            Call<RegistrationModel> call = API_Client.getClient().verify_account_by_phone("1234567890");
+            Call<RegistrationModel> call = API_Client.getClient().verify_account_by_phone(userPhoneNumberData);
 
             call.enqueue(new Callback<RegistrationModel>() {
                 @Override
@@ -314,11 +309,14 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                             if (success.equals("true") || success.equals("True")) {
-                                sendVerificationCode("+"+countryCode + userPhoneNumberData);
-
-                            } else {
 
                                 Toast.makeText(getApplicationContext(), "Mobile number already register" , Toast.LENGTH_LONG).show();
+                               // register_api();
+
+                            } else {
+                                sendVerificationCode("+"+countryCode + userPhoneNumberData);
+                                Log.e("userPhoneNumber","+"+countryCode + userPhoneNumberData);
+
 
                             }
 

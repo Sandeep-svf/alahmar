@@ -10,8 +10,8 @@ public class API_Client {
 
         public static final String  BASE_URL= "http://69.49.235.253:8004/api/";
         public static final String  BASE_URL1= "http://192.168.1.46:8000/api/";
-        public static final String  BASE_IMAGE_URL= "http://69.49.235.253:8004/";
-        public static final String  FORM_URL= "http://69.49.235.253:8004/";
+        public static final String  BASE_IMAGE_URL= "http://69.49.235.253:8004";
+        public static final String  FORM_URL= "http://69.49.235.253:8004";
 
         private static Retrofit retrofit = null;
         private static Api api;

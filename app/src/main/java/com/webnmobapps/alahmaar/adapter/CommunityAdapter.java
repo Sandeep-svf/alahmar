@@ -20,12 +20,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.webnmobapps.alahmaar.MainActivity;
 import com.webnmobapps.alahmaar.R;
+import com.webnmobapps.alahmaar.model.AddCommentModel;
+import com.webnmobapps.alahmaar.model.CommonSuccessMsgModel;
 import com.webnmobapps.alahmaar.model.CommunityCommentListModel;
 import com.webnmobapps.alahmaar.model.CommunityCommentListResult;
 import com.webnmobapps.alahmaar.model.CommuntyPostResult;
@@ -51,11 +54,13 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
     private String userId;
     List<CommunityCommentListResult> communityCommentListResultList = new ArrayList<>();
     RecyclerView comment_recycler_view;
+    String finalAccessToken;
 
-    public CommunityAdapter(Context context, List<CommuntyPostResult> communtyPostResultList, String userId) {
+    public CommunityAdapter(Context context, List<CommuntyPostResult> communtyPostResultList, String userId, String finalAccessToken) {
         this.context = context;
         this.communtyPostResultList = communtyPostResultList;
         this.userId = userId;
+        this.finalAccessToken = finalAccessToken;
     }
 
     @NonNull
@@ -90,6 +95,9 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
 // String post_id, int position, List<Post_Response> post_responses
 
     private void comments(CommunityViewHolder holder, String postId) {
+
+        Log.e("postId",postId);
+
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View customView = layoutInflater.inflate(R.layout.comment_pop_up_window, null);
         comment_recycler_view = customView.findViewById(R.id.comment_recycler_view);
@@ -102,19 +110,28 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
 
        // List<Comment> user_comment = post_responses.get(position).getComments();
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        comment_recycler_view.setLayoutManager(linearLayoutManager);
 
-        comment_list_api(holder,context,postId);
+
+        send_comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textData = comment_edt.getText().toString();
+
+                add_comment_api(textData,postId);
+                comment_edt.setText("");
+            }
+        });
+
+        comment_list_api(context,postId);
 
         dismiss_popup_icon.setOnClickListener(v -> popupWindow.dismiss());
 
-        send_comment.setOnClickListener(v -> {
+     /*   send_comment.setOnClickListener(v -> {
             String str_edt_comment = comment_edt.getText().toString();
             if (str_edt_comment.equals("")) {
                 Toast.makeText(context, context.getString(R.string.comment), Toast.LENGTH_SHORT).show();
 
-                add_comment_api();
+              //  add comment
 
                 comment_edt.requestFocus();
             } else {
@@ -122,10 +139,101 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
                 comment_edt.setText("");
                 popupWindow.dismiss();
             }
-        });
+        });*/
     }
 
-    private void add_comment_api() {
+    private void add_comment_api(String commentString, String postId) {
+
+        // add comment api
+
+            final ProgressDialog pd = new ProgressDialog(context);
+            pd.setCancelable(false);
+            pd.setMessage("loading...");
+            pd.show();
+
+            Call<AddCommentModel> call = API_Client.getClient().ADD_COMMENT_MODEL_CALL_POST(finalAccessToken,userId,postId,commentString);
+
+            call.enqueue(new Callback<AddCommentModel>() {
+                @Override
+                public void onResponse(Call<AddCommentModel> call, Response<AddCommentModel> response) {
+                    pd.dismiss();
+                    try {
+                        //if api response is successful ,taking message and success
+                        if (response.isSuccessful()) {
+
+                            String success = String.valueOf(response.body().getSuccess());
+                            String message = String.valueOf(response.body().getMessage());
+
+
+                            if (success.equals("true") || success.equals("True")) {
+
+                                Toast.makeText(context,message , Toast.LENGTH_SHORT).show();
+                                //CommunityViewHolder holder, Context context,String postId
+                                comment_list_api(context,postId);
+                            } else {
+                                Toast.makeText(context, "Something went wrong." , Toast.LENGTH_LONG).show();
+                                pd.dismiss();
+                            }
+
+                        } else {
+                            try {
+                                JSONObject jObjError = new JSONObject(response.errorBody().string());
+                                Toast.makeText(context, jObjError.getString("message"), Toast.LENGTH_LONG).show();
+                                switch (response.code()) {
+                                    case 400:
+                                        Toast.makeText(context, "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 401:
+                                        Toast.makeText(context, "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 404:
+                                        Toast.makeText(context, "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 500:
+                                        Toast.makeText(context, "Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 503:
+                                        Toast.makeText(context, "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 504:
+                                        Toast.makeText(context, "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 511:
+                                        Toast.makeText(context, "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    default:
+                                        Toast.makeText(context, "unknown error", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+
+                            } catch (Exception e) {
+                                Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    } catch (
+                            Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<AddCommentModel> call, Throwable t) {
+                    Log.e("conversion issue", t.getMessage());
+
+                    if (t instanceof IOException) {
+                        Toast.makeText(context, "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                    } else {
+                        Log.e("conversion issue", t.getMessage());
+                        Toast.makeText(context, "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                    }
+                }
+            });
+
+        }
+
+   /* private void add_comment_api() {
 
             // comment list api...........
 
@@ -148,18 +256,16 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
 
 
                             if (success.equals("true") || success.equals("True")) {
-
+                                communityCommentListResultList = response.body().getData();
                                 // Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
                                 //
-                                communityCommentListResultList = response.body().getData();
 
-                                if(communityCommentListResultList.isEmpty()){
-                                    Toast.makeText(context, "This post doesn't have any comment yet", Toast.LENGTH_SHORT).show();
-                                }
 
-                                Comment_Adapter adapter = new Comment_Adapter(context,communityCommentListResultList,userId,"2");
-                                comment_recycler_view.setAdapter(adapter);
+
+
+
+
 
 
                             } else {
@@ -223,9 +329,9 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
                 }
             });
 
-        }
+        }*/
 
-    private void comment_list_api(CommunityViewHolder holder, Context context,String postId) {
+    private void comment_list_api(Context context,String postId) {
 
         // comment list api...........
         
@@ -234,7 +340,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
             pd.setMessage("loading...");
             pd.show();
 
-            Call<CommunityCommentListModel> call = API_Client.getClient().comments_list(userId);
+            Call<CommunityCommentListModel> call = API_Client.getClient().comments_list(finalAccessToken,postId);
 
             call.enqueue(new Callback<CommunityCommentListModel>() {
                 @Override
@@ -254,12 +360,16 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
                                 //
                                 communityCommentListResultList = response.body().getData();
 
+                                Toast.makeText(context, "List size is:"+communityCommentListResultList.size(), Toast.LENGTH_SHORT).show();
+
                                 if(communityCommentListResultList.isEmpty()){
                                     Toast.makeText(context, "This post doesn't have any comment yet", Toast.LENGTH_SHORT).show();
                                 }
+                                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+                                    comment_recycler_view.setLayoutManager(linearLayoutManager);
+                                    CommunityCommentListAdater communityCommentListAdater = new CommunityCommentListAdater(communityCommentListResultList, context,userId, finalAccessToken, postId);
+                                    comment_recycler_view.setAdapter(communityCommentListAdater);
 
-                                Comment_Adapter adapter = new Comment_Adapter(context,communityCommentListResultList,userId,postId);
-                                comment_recycler_view.setAdapter(adapter);
 
 
                             } else {

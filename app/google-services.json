@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "911336959096",
-    "project_id": "alahmar-55323",
-    "storage_bucket": "alahmar-55323.appspot.com"
+    "project_number": "1028587675914",
+    "project_id": "alahmar-c0592",
+    "storage_bucket": "alahmar-c0592.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911336959096:android:98698499f595293ebf118d",
+        "mobilesdk_app_id": "1:1028587675914:android:ead32b5315b80b02511af3",
         "android_client_info": {
-          "package_name": "com.webnmobapps.alahmaar"
+          "package_name": "com.webnmobapp.alahmar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "911336959096-t5tgjn14j0q4elgvi191vcuvui2b509b.apps.googleusercontent.com",
+          "client_id": "1028587675914-dkju2o4c0bahb1nd3peo6vl7ka2itlto.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.webnmobapps.alahmaar",
-            "certificate_hash": "406d082b9e37f920ac02a11feba852fc22294735"
+            "package_name": "com.webnmobapp.alahmar",
+            "certificate_hash": "b0dfd95eee555e6b949fc194ec41b888d56c4ad1"
           }
         },
         {
-          "client_id": "911336959096-pddvh3j47pbl4i5mt52mk2gb0ci8blhs.apps.googleusercontent.com",
+          "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAFya8Hvr_PLXZjTPqthYsWTOSqZ5t3qnM"
+          "current_key": "AIzaSyCjejo3Cs-Z0zox7Yy0HZubN5VJfdEGimk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "911336959096-pddvh3j47pbl4i5mt52mk2gb0ci8blhs.apps.googleusercontent.com",
+              "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
