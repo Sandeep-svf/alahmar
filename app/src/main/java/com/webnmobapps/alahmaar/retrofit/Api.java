@@ -1,6 +1,8 @@
 package com.webnmobapps.alahmaar.retrofit;
 
 
+import com.webnmobapps.alahmaar.model.AddCommentModel;
+import com.webnmobapps.alahmaar.model.CommonSuccessMsgModel;
 import com.webnmobapps.alahmaar.model.CommunityCommentListModel;
 import com.webnmobapps.alahmaar.model.CommunityPostModel;
 import com.webnmobapps.alahmaar.model.EventListModel;
@@ -107,12 +109,34 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("total-comments")
-    Call<CommunityCommentListModel> comments_list (@Field("id") String userId);
+    Call<CommunityCommentListModel> comments_list (@Header("authorization") String authorization,@Field("id") String userId);
+
+
+   @FormUrlEncoded
+    @PUT("add-community-comment")
+    Call<AddCommentModel> ADD_COMMENT_MODEL_CALL (@Header("authorization") String authorization,
+                                                  @Field("user") String user,
+                                                  @Field("community_post") String community_post,
+                                                  @Field("id") String id,
+                                                  @Field("comment") String comment);
 
 
     @FormUrlEncoded
     @POST("verify-phone-number")
     Call<RegistrationModel> verify_account_by_phone (@Field("phone") String phone_number);
+
+    @FormUrlEncoded
+    @POST(" delete-comment-message")
+    Call<CommonSuccessMsgModel> COMMON_SUCCESS_MSG_MODEL_CALL (@Header("authorization") String authorization,
+                                                               @Field("community_post") String community_post,
+                                                               @Field("id") String id);
+
+    @FormUrlEncoded
+    @POST("add-community-comment")
+    Call<AddCommentModel> ADD_COMMENT_MODEL_CALL_POST (@Header("authorization") String authorization,
+                                                  @Field("user") String user,
+                                                  @Field("community_post") String community_post,
+                                                  @Field("comment") String comment);
 
 
 

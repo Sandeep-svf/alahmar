@@ -5,82 +5,50 @@ import com.google.gson.annotations.SerializedName;
 
 public class CommunityCommentListResult {
 
-@SerializedName("id")
-@Expose
-public Integer id;
-@SerializedName("image")
-@Expose
-public String image;
-@SerializedName("topic_description")
-@Expose
-public String topicDescription;
-@SerializedName("headdings")
-@Expose
-public String headdings;
-@SerializedName("date")
-@Expose
-public String date;
-@SerializedName("likes")
-@Expose
-public Integer likes;
-@SerializedName("comment")
-@Expose
-public Integer comment;
-
+    @SerializedName("id")
+    @Expose
+    public Integer id;
+    @SerializedName("comment")
+    @Expose
+    public String comment;
+    @SerializedName("community_post")
+    @Expose
+    public Integer communityPost;
+    @SerializedName("user")
+    @Expose
+    public Integer user;
+    @SerializedName("username")
+    @Expose
+    public String username;
+    @SerializedName("image")
+    @Expose
+    public String image;
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getComment() {
+        return comment;
+    }
+
+    public Integer getCommunityPost() {
+        return communityPost;
+    }
+
+    public Integer getUser() {
+        return user;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getTopicDescription() {
-        return topicDescription;
-    }
-
-    public void setTopicDescription(String topicDescription) {
-        this.topicDescription = topicDescription;
-    }
-
-    public String getHeaddings() {
-        return headdings;
-    }
-
-    public void setHeaddings(String headdings) {
-        this.headdings = headdings;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public Integer getLikes() {
-        return likes;
-    }
-
-    public void setLikes(Integer likes) {
-        this.likes = likes;
-    }
-
-    public Integer getComment() {
-        return comment;
-    }
-
-    public void setComment(Integer comment) {
+    public void setComment(String comment) {
         this.comment = comment;
     }
 }

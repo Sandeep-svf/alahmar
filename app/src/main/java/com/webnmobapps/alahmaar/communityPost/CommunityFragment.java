@@ -84,7 +84,7 @@ public class CommunityFragment extends Fragment {
 
                                 // Log.e("SAM","List size: "+formListModelList.size());
                                 // Toast.makeText(getActivity(), formListModelList.size(), Toast.LENGTH_SHORT).show();
-                                CommunityAdapter communityAdapter = new CommunityAdapter(getActivity(),communtyPostResultList,userID);
+                                CommunityAdapter communityAdapter = new CommunityAdapter(getActivity(),communtyPostResultList,userID,finalAccessToken);
                                 rcv_community.setAdapter(communityAdapter);
 
                             } else {
