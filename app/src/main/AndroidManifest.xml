@@ -21,28 +21,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alahmar">
         <activity
-            android:name=".userForm.FormDetailsActivity"
+            android:name="com.webnmobapps.alahmaar.userForm.FormDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".basicAndroidFunction.ChangePasswordActivity"
+            android:name="com.webnmobapps.alahmaar.basicAndroidFunction.ChangePasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".utility.TempActivity"
+            android:name="com.webnmobapps.alahmaar.utility.TempActivity"
             android:exported="true" />
         <activity
-            android:name=".basicAndroidFunction.Fragment.TempActivity"
+            android:name="com.webnmobapps.alahmaar.basicAndroidFunction.Fragment.TempActivity"
             android:exported="true" />
         <activity
-            android:name=".basicAndroidFunction.Fragment.ContactUsUserFormActivity"
+            android:name="com.webnmobapps.alahmaar.basicAndroidFunction.Fragment.ContactUsUserFormActivity"
             android:exported="true" />
         <activity
-            android:name=".basicAndroidFunction.ForgotPasswordActivity"
+            android:name="com.webnmobapps.alahmaar.basicAndroidFunction.ForgotPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".event.EventDetailsActivity"
+            android:name="com.webnmobapps.alahmaar.event.EventDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".basicAndroidFunction.SplashActivity"
+            android:name="com.webnmobapps.alahmaar.basicAndroidFunction.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,13 +51,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".basicAndroidFunction.LoginActivity"
+            android:name="com.webnmobapps.alahmaar.basicAndroidFunction.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".basicAndroidFunction.RegisterActivity"
+            android:name="com.webnmobapps.alahmaar.basicAndroidFunction.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.webnmobapps.alahmaar.MainActivity"
             android:exported="true" />
 
         <provider
@@ -71,7 +71,7 @@
         </provider>
 
         <service
-            android:name=".utility.MyFirebaseMessagingService"
+            android:name="com.webnmobapps.alahmaar.utility.MyFirebaseMessagingService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

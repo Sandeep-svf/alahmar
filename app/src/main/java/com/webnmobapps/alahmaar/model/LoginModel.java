@@ -1,7 +1,5 @@
 package com.webnmobapps.alahmaar.model;
 
-import androidx.browser.trusted.Token;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

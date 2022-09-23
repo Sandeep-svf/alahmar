@@ -14,11 +14,9 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.webnmobapps.alahmaar.MainActivity;
 import com.webnmobapps.alahmaar.R;
 import com.webnmobapps.alahmaar.model.CommonSuccessMsgModel;
 import com.webnmobapps.alahmaar.model.NotificationListResult;
-import com.webnmobapps.alahmaar.model.TotalNumberNotification;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
 
 import org.json.JSONObject;

@@ -32,7 +32,6 @@ import com.webnmobapps.alahmaar.basicAndroidFunction.NotificationFragment;
 import com.webnmobapps.alahmaar.basicAndroidFunction.donate.DonateFragment;
 import com.webnmobapps.alahmaar.communityPost.CommunityFragment;
 import com.webnmobapps.alahmaar.event.EventFragment;
-import com.webnmobapps.alahmaar.model.AddCommentModel;
 import com.webnmobapps.alahmaar.model.RegistrationModel;
 import com.webnmobapps.alahmaar.model.TotalNumberNotification;
 import com.webnmobapps.alahmaar.retrofit.API_Client;

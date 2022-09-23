@@ -41,6 +41,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028587675914:android:9bdfbde3fcd6b2e2511af3",
+        "android_client_info": {
+          "package_name": "com.webnmobapps.alahmaar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjejo3Cs-Z0zox7Yy0HZubN5VJfdEGimk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

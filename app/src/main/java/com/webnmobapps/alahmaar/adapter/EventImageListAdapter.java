@@ -11,26 +11,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.webnmobapps.alahmaar.R;
-import com.webnmobapps.alahmaar.basicAndroidFunction.RegisterActivity;
 import com.webnmobapps.alahmaar.model.EventGallry;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
 
 import java.util.ArrayList;
-
-import in.aabhasjindal.otptextview.OtpTextView;
 
 public class EventImageListAdapter extends RecyclerView.Adapter<ImageListViewHolder> {
 

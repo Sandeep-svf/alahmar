@@ -19,7 +19,6 @@ import com.webnmobapps.alahmaar.R;
 import com.webnmobapps.alahmaar.adapter.AboutTeamAdapter;
 import com.webnmobapps.alahmaar.model.AboutTeamData;
 import com.webnmobapps.alahmaar.model.AboutTeamModel;
-import com.webnmobapps.alahmaar.model.RegistrationModel;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
 
 import org.json.JSONObject;

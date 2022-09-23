@@ -4,36 +4,27 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.common.stats.ConnectionTracker;
 import com.webnmobapps.alahmaar.R;
 import com.webnmobapps.alahmaar.model.AddCommentModel;
 import com.webnmobapps.alahmaar.model.CommonSuccessMsgModel;
-import com.webnmobapps.alahmaar.model.CommunityCommentListModel;
 import com.webnmobapps.alahmaar.model.CommunityCommentListResult;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
 

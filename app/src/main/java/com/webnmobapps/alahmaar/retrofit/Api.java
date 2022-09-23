@@ -9,6 +9,7 @@ import com.webnmobapps.alahmaar.model.CommunityPostModel;
 import com.webnmobapps.alahmaar.model.EventListModel;
 import com.webnmobapps.alahmaar.model.GetUserProfileModel;
 import com.webnmobapps.alahmaar.model.LoginModel;
+import com.webnmobapps.alahmaar.model.MsgSuccessModel;
 import com.webnmobapps.alahmaar.model.NotificationListModel;
 import com.webnmobapps.alahmaar.model.RegistrationModel;
 import com.webnmobapps.alahmaar.model.TotalNumberNotification;
@@ -94,8 +95,15 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("rest-password")
-    Call<RegistrationModel> reset_password (@Field("phone_number") String phone_number,
+    Call<RegistrationModel>     reset_password (@Field("phone_number") String phone_number,
                                             @Field("new_password") String new_password);
+
+
+    @FormUrlEncoded
+    @POST("changepassword")
+    Call<MsgSuccessModel>     change_password (@Header("authorization") String authorization,
+                                               @Field("old_password") String old_password,
+                                               @Field("new_password") String new_password);
 
 
 

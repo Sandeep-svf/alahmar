@@ -1,6 +1,8 @@
 package com.webnmobapps.alahmaar.settings;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.webnmobapps.alahmaar.R;
+import com.webnmobapps.alahmaar.model.MsgSuccessModel;
 import com.webnmobapps.alahmaar.model.RegistrationModel;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
 
@@ -30,7 +33,7 @@ public class SettingsFragment extends Fragment {
 
     AppCompatEditText old_Password_edittext, new_password_edittext, confirm_new_password_edittext;
     AppCompatButton update_password_button_layout;
-    private String oldPassword, newPassword, confirmNewPassword;
+    private String oldPassword, newPassword, confirmNewPassword,accessToken,finalAccessToken;
 
 
     @Override
@@ -41,6 +44,16 @@ public class SettingsFragment extends Fragment {
 
         inits(view);
 
+
+
+        //geting userID data
+        SharedPreferences getUserIdData = getActivity().getSharedPreferences("AUTHENTICATION_FILE_NAME", Context.MODE_PRIVATE);
+        accessToken = getUserIdData.getString("accessToken", "");
+        finalAccessToken = "Bearer "+accessToken;
+
+
+        Log.e("apicall","setting fragment  calling");
+
         update_password_button_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,8 +61,11 @@ public class SettingsFragment extends Fragment {
                get_form_data();
 
                if(validaton()){
+                   Log.e("apicall","api method calling");
 
                    change_password_api();
+                //   change_password_api2();
+
 
                }
             }
@@ -59,9 +75,14 @@ public class SettingsFragment extends Fragment {
         return view;
     }
 
+    private void change_password_api2(){
+        Toast.makeText(getActivity(), "Second methods callings.......", Toast.LENGTH_SHORT).show();
+    }
+
     private void change_password_api() {
 
 
+        Log.e("apicall","api calling...");
             // show till load api data
 
             final ProgressDialog pd = new ProgressDialog(getActivity());
@@ -69,25 +90,28 @@ public class SettingsFragment extends Fragment {
             pd.setMessage("loading...");
             pd.show();
 
-            Call<RegistrationModel> call = API_Client.getClient().reset_password("","");
+            Call<MsgSuccessModel> call = API_Client.getClient().change_password(finalAccessToken,oldPassword,newPassword);
 
-            call.enqueue(new Callback<RegistrationModel>() {
+            call.enqueue(new Callback<MsgSuccessModel>() {
                 @Override
-                public void onResponse(Call<RegistrationModel> call, Response<RegistrationModel> response) {
+                public void onResponse(Call<MsgSuccessModel> call, Response<MsgSuccessModel> response) {
                     pd.dismiss();
                     try {
                         //if api response is successful ,taking message and success
                         if (response.isSuccessful()) {
+                            Log.e("apicall","api status 200");
                             String message = response.body().getMsg();
                             String success = String.valueOf(response.body().getSuccess());
 
 
                             if (success.equals("true") || success.equals("True")) {
 
+                                Log.e("apicall","api status true");
                                 Toast.makeText(getActivity(), message , Toast.LENGTH_LONG).show();
                                 pd.dismiss();
 
                             } else {
+                                Log.e("apicall","api status false");
                                 Toast.makeText(getActivity(), message , Toast.LENGTH_LONG).show();
                                 pd.dismiss();
                             }
@@ -134,7 +158,7 @@ public class SettingsFragment extends Fragment {
                 }
 
                 @Override
-                public void onFailure(Call<RegistrationModel> call, Throwable t) {
+                public void onFailure(Call<MsgSuccessModel> call, Throwable t) {
                     Log.e("conversion issue", t.getMessage());
 
                     if (t instanceof IOException) {
@@ -153,15 +177,19 @@ public class SettingsFragment extends Fragment {
     private boolean validaton() {
         if(oldPassword.equals("")){
             Toast.makeText(getActivity(), "Please enter old password", Toast.LENGTH_SHORT).show();
+            return false;
         }else if(newPassword.equals("")){
             Toast.makeText(getActivity(), "Please enter new password", Toast.LENGTH_SHORT).show();
+            return false;
         }else if(confirmNewPassword.equals("")){
             Toast.makeText(getActivity(), "Please enter confirm password", Toast.LENGTH_SHORT).show();
-        }else if(newPassword != confirmNewPassword){
+            return false;
+        }else if(!(newPassword.equals(confirmNewPassword))){
             Toast.makeText(getActivity(), "Password did not match", Toast.LENGTH_SHORT).show();
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     private void get_form_data() {
@@ -172,6 +200,9 @@ public class SettingsFragment extends Fragment {
 
     private void inits(View view) {
         update_password_button_layout = view.findViewById(R.id.update_password_button_layout);
+        old_Password_edittext = view.findViewById(R.id.old_Password_edittext);
+        new_password_edittext = view.findViewById(R.id.new_password_edittext);
+        confirm_new_password_edittext = view.findViewById(R.id.confirm_new_password_edittext);
 
     }
 }
