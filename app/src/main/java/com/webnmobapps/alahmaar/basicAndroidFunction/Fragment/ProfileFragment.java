@@ -215,13 +215,13 @@ public class ProfileFragment extends Fragment {
         if (profileImage == null) {
 
             profile = MultipartBody.Part.createFormData("profile", "", RequestBody.create(MediaType.parse("image/*"), ""));
-            Log.e("Photo", String.valueOf(profileImage));
+            Log.e("Photo", String.valueOf(profileImage)+"null");
 
         } else {
 
 
             profile = MultipartBody.Part.createFormData("profile", profileImage.getName(), RequestBody.create(MediaType.parse("image/*"), profileImage));
-            Log.e("Photo", String.valueOf(profileImage));
+            Log.e("Photo", String.valueOf(profileImage)+"value");
         }
 
        // profile = MultipartBody.Part.createFormData("profile", profileImage.getName(), RequestBody.create(MediaType.parse("image/*"), profileImage));
@@ -347,7 +347,7 @@ public class ProfileFragment extends Fragment {
                                 userName = getUserProfileResult.getUsername();
                                 userEmail = getUserProfileResult.getEmail();
                                 userMobileNumber = getUserProfileResult.getPhoneNumber();
-                                userProfile = getUserProfileResult.getImage();
+                               String  userProfile123 = getUserProfileResult.getImage();
                                 userId = String.valueOf(getUserProfileResult.getId());
                                 
                                 Log.e("api_details",userEmail+userName+userMobileNumber+userProfile);
@@ -360,7 +360,9 @@ public class ProfileFragment extends Fragment {
 
 
                                 try {
-                                    Glide.with(getActivity()).load(API_Client.BASE_IMAGE_URL+userProfile).placeholder(R.drawable.ic_launcher_background).into(add_user_profile_image);
+                                    Glide.with(getActivity()).load(API_Client.BASE_IMAGE_URL+userProfile123)
+                                            .placeholder(R.drawable.ic_launcher_background)
+                                            .into(add_user_profile_image);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }

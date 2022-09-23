@@ -57,7 +57,7 @@
 
             app:civ_border_width="1dp"
             app:civ_border_color="@color/green_bg"
-            android:src="@drawable/user_profile2"
+            android:src="@drawable/ic_launcher_background"
             >
 
         </de.hdodenhof.circleimageview.CircleImageView>

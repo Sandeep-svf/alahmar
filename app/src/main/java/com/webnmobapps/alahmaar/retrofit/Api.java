@@ -1,6 +1,7 @@
 package com.webnmobapps.alahmaar.retrofit;
 
 
+import com.webnmobapps.alahmaar.model.AboutTeamModel;
 import com.webnmobapps.alahmaar.model.AddCommentModel;
 import com.webnmobapps.alahmaar.model.CommonSuccessMsgModel;
 import com.webnmobapps.alahmaar.model.CommunityCommentListModel;
@@ -10,6 +11,7 @@ import com.webnmobapps.alahmaar.model.GetUserProfileModel;
 import com.webnmobapps.alahmaar.model.LoginModel;
 import com.webnmobapps.alahmaar.model.NotificationListModel;
 import com.webnmobapps.alahmaar.model.RegistrationModel;
+import com.webnmobapps.alahmaar.model.TotalNumberNotification;
 import com.webnmobapps.alahmaar.model.UserAccountVerificationModel;
 import com.webnmobapps.alahmaar.model.UserFormListModel;
 
@@ -138,6 +140,23 @@ public interface Api {
                                                   @Field("community_post") String community_post,
                                                   @Field("comment") String comment);
 
+    @GET("total-user-notifications")
+    Call<TotalNumberNotification> TOTAL_NUMBER_NOTIFICATION_CALL(@Header("authorization") String authorization);
 
+
+    @FormUrlEncoded
+    @POST("user-delete-notifications")
+    Call<CommonSuccessMsgModel> COMMON_SUCCESS_MSG_MODEL_CALL_NOTIFICAITON(@Header("authorization") String authorization,
+                                                              @Field("id") String id);
+
+
+    @FormUrlEncoded
+    @POST("user-clear-all-notifications")
+    Call<CommonSuccessMsgModel> COMMON_SUCCESS_MSG_MODEL_CALL_NOTIFICAITON_CLEAR_ALL(@Header("authorization") String authorization,
+                                                                           @Field("id") String id);
+
+
+    @GET("company-team-members-details")
+    Call<AboutTeamModel> ABOUT_TEAM_MODEL_CALL(@Header("authorization") String authorization);
 
 }

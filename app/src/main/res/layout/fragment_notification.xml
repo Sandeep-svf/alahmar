@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".basicAndroidFunction.NotificationFragment">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="45dp"
+
+    >
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:visibility="gone"
+        android:id="@+id/clear_all_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+      android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_bg"
+        android:text="Clear All"
+        android:textColor="@color/white"
+      ></androidx.appcompat.widget.AppCompatButton>
+
+  </RelativeLayout>
+
+
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rcv_notification"
@@ -15,4 +39,4 @@
 
   </androidx.recyclerview.widget.RecyclerView>
 
-</FrameLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

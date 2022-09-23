@@ -113,11 +113,16 @@ public class LoginActivity extends AppCompatActivity {
 
                                 String userImage = login_model.getImage();
                                 String userName = login_model.getUsername();
+                                String userEmail = login_model.getEmail();
 
 
-
-                                Log.e("token", String.valueOf(accessToken));
-                                Log.e("token", String.valueOf(refreshToken));
+                                try {
+                                    Log.e("token", String.valueOf(accessToken));
+                                    Log.e("token", String.valueOf(refreshToken));
+                                    Log.e("token", String.valueOf(userEmail));
+                                } catch (Exception exception) {
+                                    exception.printStackTrace();
+                                }
 
                                 // Using share preferance for setting userID data
 
@@ -127,6 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("refreshToken", String.valueOf(refreshToken));
                                 editor.putString("UserID", String.valueOf(userId));
                                 editor.putString("userImage", String.valueOf(userImage));
+                                editor.putString("userEmail", String.valueOf(userEmail));
                                 editor.putString("userName", String.valueOf(userName));
 
                                 editor.apply();

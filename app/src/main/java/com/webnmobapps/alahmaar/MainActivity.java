@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.webnmobapps.alahmaar.basicAndroidFunction.Fragment.AboutFragment;
@@ -30,7 +32,9 @@ import com.webnmobapps.alahmaar.basicAndroidFunction.NotificationFragment;
 import com.webnmobapps.alahmaar.basicAndroidFunction.donate.DonateFragment;
 import com.webnmobapps.alahmaar.communityPost.CommunityFragment;
 import com.webnmobapps.alahmaar.event.EventFragment;
+import com.webnmobapps.alahmaar.model.AddCommentModel;
 import com.webnmobapps.alahmaar.model.RegistrationModel;
+import com.webnmobapps.alahmaar.model.TotalNumberNotification;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
 import com.webnmobapps.alahmaar.settings.SettingsFragment;
 import com.webnmobapps.alahmaar.transactionHistory.TransactionHistoryFragment;
@@ -56,7 +60,10 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
             about_layout,transection_layout,setting_layout,logout_layout;
     ConstraintLayout container,edit_profile_layout;
     RelativeLayout relative_notification;
-    private String accessToken,finalAccessToken,refreshToken,userImage,userName;
+    private String accessToken,finalAccessToken,refreshToken,userImage,userName,userEmail;
+    ShapeableImageView userImageLayout;
+    AppCompatTextView user_name_layout, user_email_layout;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,7 +95,18 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         refreshToken = getUserIdData.getString("refreshToken", "");
         userImage = getUserIdData.getString("userImage", "");
         userName = getUserIdData.getString("userName", "");
+        userEmail = getUserIdData.getString("userEmail", "");
         finalAccessToken = "Bearer "+accessToken;
+
+
+        Log.e("Dfsdfasd",userEmail+userName+"ok");
+
+        Glide.with(MainActivity.this).load(API_Client.BASE_IMAGE_URL+userImage)
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(userImageLayout);
+
+        user_name_layout.setText(userName);
+        user_email_layout.setText(userEmail);
 
 
         List<Character> list = new ArrayList<Character>();
@@ -99,7 +117,106 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         }
         Log.e("fsdfs",list.get(0).toString());
 
+        total_number_notification();
+
     }
+
+    private void total_number_notification() {
+       
+
+
+            // comment list api...........
+
+            final ProgressDialog pd = new ProgressDialog(MainActivity.this);
+            pd.setCancelable(false);
+            pd.setMessage("loading...");
+            pd.show();
+
+            Call<TotalNumberNotification> call = API_Client.getClient().TOTAL_NUMBER_NOTIFICATION_CALL(finalAccessToken);
+
+            call.enqueue(new Callback<TotalNumberNotification>() {
+                @Override
+                public void onResponse(Call<TotalNumberNotification> call, Response<TotalNumberNotification> response) {
+                    pd.dismiss();
+                    try {
+                        //if api response is successful ,taking message and success
+                        if (response.isSuccessful()) {
+
+                            String success = String.valueOf(response.body().getSuccess());
+                            String message = String.valueOf(response.body().getMsg());
+
+
+                            if (success.equals("true") || success.equals("True")) {
+                                //Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                                TotalNumberNotification totalNumberNotification = response.body();
+
+                                text_notification.setText( String.valueOf(totalNumberNotification.getTotalNotification()));
+
+                                Log.e("shkjdhgf", String.valueOf(totalNumberNotification.getTotalNotification()));
+                               
+
+                            } else {
+                                Toast.makeText(MainActivity.this, "Something went wrong." , Toast.LENGTH_LONG).show();
+                                pd.dismiss();
+                            }
+
+                        } else {
+                            try {
+                                JSONObject jObjError = new JSONObject(response.errorBody().string());
+                                Toast.makeText(MainActivity.this, jObjError.getString("message"), Toast.LENGTH_LONG).show();
+                                switch (response.code()) {
+                                    case 400:
+                                        Toast.makeText(MainActivity.this, "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 401:
+                                        Toast.makeText(MainActivity.this, "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 404:
+                                        Toast.makeText(MainActivity.this, "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 500:
+                                        Toast.makeText(MainActivity.this, "Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 503:
+                                        Toast.makeText(MainActivity.this, "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 504:
+                                        Toast.makeText(MainActivity.this, "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 511:
+                                        Toast.makeText(MainActivity.this, "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    default:
+                                        Toast.makeText(MainActivity.this, "unknown error", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+
+                            } catch (Exception e) {
+                                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    } catch (
+                            Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<TotalNumberNotification> call, Throwable t) {
+                    Log.e("conversion issue", t.getMessage());
+
+                    if (t instanceof IOException) {
+                        Toast.makeText(MainActivity.this, "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                    } else {
+                        Log.e("conversion issue", t.getMessage());
+                        Toast.makeText(MainActivity.this, "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                    }
+                }
+            });
+
+        }
 
     private void my_sliding_window() {
         try {
@@ -152,6 +269,9 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         transection_layout= (RelativeLayout) findViewById(R.id.transection_layout);
         edit_profile_layout= (ConstraintLayout) findViewById(R.id.edit_profile_layout);
         logout_layout= (RelativeLayout) findViewById(R.id.logout_layout);
+        user_name_layout= (AppCompatTextView) findViewById(R.id.user_name_layout);
+        user_email_layout= (AppCompatTextView) findViewById(R.id.user_email_layout);
+        userImageLayout= (ShapeableImageView) findViewById(R.id.userImageLayout);
 
     }
 
@@ -175,6 +295,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
 
 
             case R.id.relative_notification:
+                text_notification.setText("0");
                 StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
                 StrictMode.setVmPolicy(builder.build());
                 ((ConstraintLayout) findViewById(R.id.container)).removeAllViews();

@@ -25,6 +25,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/ic_continue_credentials.xml" value="0.11614583333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/messages.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/text_color.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/about_team_design.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_change_password.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_contact_us_form.xml" value="0.14" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_demo_kotlin.xml" value="0.209375" />
@@ -33,7 +34,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_form_details.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_form_details2.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_login.xml" value="0.18" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_register.xml" value="0.18" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_temp.xml" value="0.209375" />
@@ -65,8 +66,6 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/test_dialog_xml_otp.xml" value="0.2" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/test_dialog_xml_otp2.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/xml/provider_paths.xml" value="0.209375" />
-        <entry key="..\:/Users/svfsa/AndroidStudioProjects/alahmar/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/svfsa/AndroidStudioProjects/alahmar/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
