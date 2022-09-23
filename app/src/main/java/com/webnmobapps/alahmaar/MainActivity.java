@@ -56,7 +56,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
             about_layout,transection_layout,setting_layout,logout_layout;
     ConstraintLayout container,edit_profile_layout;
     RelativeLayout relative_notification;
-    private String accessToken,finalAccessToken,refreshToken;
+    private String accessToken,finalAccessToken,refreshToken,userImage,userName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,8 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         SharedPreferences getUserIdData = getSharedPreferences("AUTHENTICATION_FILE_NAME", Context.MODE_PRIVATE);
         accessToken = getUserIdData.getString("accessToken", "");
         refreshToken = getUserIdData.getString("refreshToken", "");
+        userImage = getUserIdData.getString("userImage", "");
+        userName = getUserIdData.getString("userName", "");
         finalAccessToken = "Bearer "+accessToken;
 
 

@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             String message = response.body().getMsg();
                             String success = String.valueOf(response.body().getSuccess());
-                            userId = String.valueOf(response.body().getUser_id());
+                            userId = String.valueOf(response.body().getUserId());
 
 
                             Log.e("djfklsdf",message+"ok");
@@ -109,6 +109,10 @@ public class LoginActivity extends AppCompatActivity {
                                 TokenModel tokenModel = login_model.getToken();
                                 accessToken = tokenModel.getAccess();
                                 refreshToken = tokenModel.getRefresh();
+
+
+                                String userImage = login_model.getImage();
+                                String userName = login_model.getUsername();
 
 
 
@@ -122,6 +126,8 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("accessToken", String.valueOf(accessToken));
                                 editor.putString("refreshToken", String.valueOf(refreshToken));
                                 editor.putString("UserID", String.valueOf(userId));
+                                editor.putString("userImage", String.valueOf(userImage));
+                                editor.putString("userName", String.valueOf(userName));
 
                                 editor.apply();
 
