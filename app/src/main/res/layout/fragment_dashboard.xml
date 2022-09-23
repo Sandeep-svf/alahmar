@@ -49,6 +49,7 @@
     </androidx.appcompat.widget.AppCompatTextView>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/userDashboardName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -72,6 +73,7 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userDashboardImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/user_profile2"
