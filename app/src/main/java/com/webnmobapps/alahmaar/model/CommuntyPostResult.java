@@ -61,4 +61,8 @@ public Integer comment;
     public String getDate() {
         return date;
     }
+
+    public void setIs_liked(String is_liked) {
+        this.is_liked = is_liked;
+    }
 }

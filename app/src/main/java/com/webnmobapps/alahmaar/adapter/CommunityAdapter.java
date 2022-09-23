@@ -21,11 +21,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.transition.Hold;
 import com.webnmobapps.alahmaar.R;
 import com.webnmobapps.alahmaar.model.AddCommentModel;
 import com.webnmobapps.alahmaar.model.CommunityCommentListModel;
 import com.webnmobapps.alahmaar.model.CommunityCommentListResult;
 import com.webnmobapps.alahmaar.model.CommuntyPostResult;
+import com.webnmobapps.alahmaar.model.MsgSuccessModel;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
 
 import org.json.JSONObject;
@@ -46,6 +48,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
     List<CommunityCommentListResult> communityCommentListResultList = new ArrayList<>();
     RecyclerView comment_recycler_view;
     String finalAccessToken;
+    String isLiked;
 
     public CommunityAdapter(Context context, List<CommuntyPostResult> communtyPostResultList, String userId, String finalAccessToken) {
         this.context = context;
@@ -71,6 +74,15 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
         holder.community_headline.setText(communtyPostResultList.get(position).getHeaddings());
         holder.community_post_time.setText(communtyPostResultList.get(position).getDate());
 
+        isLiked =  communtyPostResultList.get(position).getIs_liked();
+       /* if(isLiked.equals("1")){
+            holder.like_image.setImageResource(R.drawable.like_color);
+        }else{
+            holder.like_image.setImageResource(R.drawable.like_empty_color);
+        }*/
+
+        Log.e("jkhyjkh",isLiked);
+
         Glide.with(context).load(API_Client.BASE_IMAGE_URL+communtyPostResultList.get(position).getImage()).placeholder(R.drawable.ic_launcher_background).into(holder.community_post_image);
 
         holder.comment_layout.setOnClickListener(new View.OnClickListener() {
@@ -78,10 +90,131 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
             public void onClick(View v) {
 
                  String postId = String.valueOf(communtyPostResultList.get(position).getId());
+
+
                 comments(holder,postId);
             }
         });
+
+        holder.like_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String postId = String.valueOf(communtyPostResultList.get(position).getId());
+                String likeStatus = communtyPostResultList.get(position).getIs_liked();
+                String finalLikeStatus;
+                if(likeStatus.equals("1")){
+                    finalLikeStatus="True";
+                }else{
+                    finalLikeStatus="False";
+                }
+                add_like_api(postId,finalLikeStatus,position,holder);
+                fsdf(holder);
+            }
+        });
     }
+
+    private void fsdf(CommunityViewHolder holder) {
+    }
+
+    private void add_like_api(String postId, String finalLikeStatus, int currentPosition, CommunityViewHolder holder) {
+
+
+            // add comment api
+
+            final ProgressDialog pd = new ProgressDialog(context);
+            pd.setCancelable(false);
+            pd.setMessage("loading...");
+            pd.show();
+
+            Call<MsgSuccessModel> call = API_Client.getClient().MSG_SUCCESS_MODEL_CALL_LIKE_COMMUNITY(finalAccessToken,finalLikeStatus,postId,userId);
+
+            call.enqueue(new Callback<MsgSuccessModel>() {
+                @Override
+                public void onResponse(Call<MsgSuccessModel> call, Response<MsgSuccessModel> response) {
+                    pd.dismiss();
+                    try {
+                        //if api response is successful ,taking message and success
+                        if (response.isSuccessful()) {
+
+                            String success = String.valueOf(response.body().getSuccess());
+                            String message = String.valueOf(response.body().getMsg());
+
+
+                            if (success.equals("true") || success.equals("True")) {
+
+                                Toast.makeText(context,message , Toast.LENGTH_SHORT).show();
+                                int number = Integer.parseInt(holder.community_no_of_like.getText().toString());
+                                if( communtyPostResultList.get(currentPosition).getIs_liked().equals("True")) {
+                                    communtyPostResultList.get(currentPosition).setIs_liked("False");
+                                    holder.community_no_of_like.setText(++number);
+                                }else{
+                                    communtyPostResultList.get(currentPosition).setIs_liked("True");
+                                    holder.community_no_of_like.setText(--number);
+                                }
+                                notifyDataSetChanged();
+
+                            } else {
+                                Toast.makeText(context, "Something went wrong." , Toast.LENGTH_LONG).show();
+                                pd.dismiss();
+                            }
+
+                        } else {
+                            try {
+                                JSONObject jObjError = new JSONObject(response.errorBody().string());
+                                Toast.makeText(context, jObjError.getString("message"), Toast.LENGTH_LONG).show();
+                                switch (response.code()) {
+                                    case 400:
+                                        Toast.makeText(context, "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 401:
+                                        Toast.makeText(context, "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 404:
+                                        Toast.makeText(context, "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 500:
+                                        Toast.makeText(context, "Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 503:
+                                        Toast.makeText(context, "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 504:
+                                        Toast.makeText(context, "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 511:
+                                        Toast.makeText(context, "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    default:
+                                        Toast.makeText(context, "unknown error", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+
+                            } catch (Exception e) {
+                                Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    } catch (
+                            Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MsgSuccessModel> call, Throwable t) {
+                    Log.e("conversion issue", t.getMessage());
+
+                    if (t instanceof IOException) {
+                        Toast.makeText(context, "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                    } else {
+                        Log.e("conversion issue", t.getMessage());
+                        Toast.makeText(context, "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                    }
+                }
+            });
+
+        }
 
 // String post_id, int position, List<Post_Response> post_responses
 
@@ -437,7 +570,7 @@ class CommunityViewHolder extends RecyclerView.ViewHolder {
 
     AppCompatTextView comment_layout, community_headline,community_post_time,community_post_description,community_no_of_comment,community_no_of_like;
     LinearLayout daflkjlkdjf;
-    AppCompatImageView comment_img_layout,community_post_image;
+    AppCompatImageView comment_img_layout,community_post_image,like_image,like_number_image;
 
     public CommunityViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -450,5 +583,7 @@ class CommunityViewHolder extends RecyclerView.ViewHolder {
         community_post_image = itemView.findViewById(R.id.community_post_image);
         community_headline = itemView.findViewById(R.id.community_headline);
         community_post_time = itemView.findViewById(R.id.community_post_time);
+        like_image = itemView.findViewById(R.id.like_image);
+        like_number_image = itemView.findViewById(R.id.like_number_image);
     }
 }

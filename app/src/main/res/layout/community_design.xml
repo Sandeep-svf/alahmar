@@ -148,6 +148,7 @@ Luck is great, but life is meant to be experienced. Sometimes the only way out o
                 android:layout_marginTop="20dp"
                 android:layout_weight="5">
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/like_number_image"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/like_color"
@@ -158,6 +159,7 @@ Luck is great, but life is meant to be experienced. Sometimes the only way out o
 
                 </androidx.appcompat.widget.AppCompatImageView>
                 <androidx.appcompat.widget.AppCompatTextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                  android:layout_marginLeft="10dp"
@@ -232,6 +234,7 @@ android:gravity="end"
                 android:layout_marginTop="10dp"
                 android:layout_weight="5">
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/like_image"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/like_empty_color"

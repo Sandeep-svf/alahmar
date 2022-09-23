@@ -167,4 +167,12 @@ public interface Api {
     @GET("company-team-members-details")
     Call<AboutTeamModel> ABOUT_TEAM_MODEL_CALL(@Header("authorization") String authorization);
 
+
+    @FormUrlEncoded
+    @POST("community-like")
+    Call<MsgSuccessModel> MSG_SUCCESS_MODEL_CALL_LIKE_COMMUNITY(@Header("authorization") String authorization,
+                                                                @Field("liked") String liked,
+                                                                 @Field("community") String community,
+                                                                @Field("user") String user);
+
 }
