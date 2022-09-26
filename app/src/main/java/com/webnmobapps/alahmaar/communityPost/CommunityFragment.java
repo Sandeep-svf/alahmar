@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +22,7 @@ import com.webnmobapps.alahmaar.adapter.CommunityAdapter;
 import com.webnmobapps.alahmaar.model.CommunityPostModel;
 import com.webnmobapps.alahmaar.model.CommuntyPostResult;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
+import com.webnmobapps.alahmaar.utility.RefreshInterface;
 
 import org.json.JSONObject;
 
@@ -31,11 +34,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CommunityFragment extends Fragment {
+public class CommunityFragment extends Fragment implements RefreshInterface {
 
     RecyclerView rcv_community;
     List<CommuntyPostResult> communtyPostResultList= new ArrayList<>();
     private String accessToken, finalAccessToken,userID;
+    RefreshInterface refreshInterface;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,14 +52,32 @@ public class CommunityFragment extends Fragment {
         userID = getUserIdData.getString("UserID", "");
         finalAccessToken = "Bearer "+accessToken;
 
+
+
         rcv_community = view.findViewById(R.id.rcv_community);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-        rcv_community.setLayoutManager(linearLayoutManager);
 
-        community_list_api();
+
+        //community_list_api();
 
         return view;
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        try {
+            refreshInterface = this;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        refreshInterface.onRefresh();
     }
 
     private void community_list_api() {
@@ -81,10 +103,11 @@ public class CommunityFragment extends Fragment {
                             if (success.equals("true") || success.equals("True")) {
 
                                 communtyPostResultList = response.body().getData();
-
+                                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
+                                rcv_community.setLayoutManager(linearLayoutManager);
                                 // Log.e("SAM","List size: "+formListModelList.size());
-                                // Toast.makeText(getActivity(), formListModelList.size(), Toast.LENGTH_SHORT).show();
-                                CommunityAdapter communityAdapter = new CommunityAdapter(getActivity(),communtyPostResultList,userID,finalAccessToken);
+                                // Toast.makeText(getActivity(), "community list api calling sucessfuly....", Toast.LENGTH_SHORT).show();
+                                CommunityAdapter communityAdapter = new CommunityAdapter(getActivity(),communtyPostResultList,userID,finalAccessToken,refreshInterface);
                                 rcv_community.setAdapter(communityAdapter);
 
                             } else {
@@ -149,4 +172,10 @@ public class CommunityFragment extends Fragment {
             });
 
         }
+
+    @Override
+    public void onRefresh() {
+        community_list_api();
+        Log.e("onrefreshinterface","on refresh interface call from fragment");
+    }
 }

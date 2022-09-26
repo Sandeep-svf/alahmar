@@ -29,6 +29,7 @@ import com.webnmobapps.alahmaar.model.CommunityCommentListResult;
 import com.webnmobapps.alahmaar.model.CommuntyPostResult;
 import com.webnmobapps.alahmaar.model.MsgSuccessModel;
 import com.webnmobapps.alahmaar.retrofit.API_Client;
+import com.webnmobapps.alahmaar.utility.RefreshInterface;
 
 import org.json.JSONObject;
 
@@ -49,12 +50,14 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
     RecyclerView comment_recycler_view;
     String finalAccessToken;
     String isLiked;
+    RefreshInterface refreshInterface;
 
-    public CommunityAdapter(Context context, List<CommuntyPostResult> communtyPostResultList, String userId, String finalAccessToken) {
+    public CommunityAdapter(Context context, List<CommuntyPostResult> communtyPostResultList, String userId, String finalAccessToken,RefreshInterface refreshInterface) {
         this.context = context;
         this.communtyPostResultList = communtyPostResultList;
         this.userId = userId;
         this.finalAccessToken = finalAccessToken;
+        this.refreshInterface = refreshInterface;
     }
 
     @NonNull
@@ -103,12 +106,17 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
                 String likeStatus = communtyPostResultList.get(position).getIs_liked();
                 String finalLikeStatus;
                 if(likeStatus.equals("1")){
+                    finalLikeStatus="False";
+                }else if(likeStatus.equals("0")){
                     finalLikeStatus="True";
                 }else{
-                    finalLikeStatus="False";
+                    Toast.makeText(context, "Something went wrong.............", Toast.LENGTH_SHORT).show();
+                    finalLikeStatus=null;
                 }
                 add_like_api(postId,finalLikeStatus,position,holder);
                 fsdf(holder);
+
+                Log.e("likeStatus","like Status: "+finalLikeStatus);
             }
         });
     }
@@ -143,15 +151,18 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
                             if (success.equals("true") || success.equals("True")) {
 
                                 Toast.makeText(context,message , Toast.LENGTH_SHORT).show();
-                                int number = Integer.parseInt(holder.community_no_of_like.getText().toString());
-                                if( communtyPostResultList.get(currentPosition).getIs_liked().equals("True")) {
-                                    communtyPostResultList.get(currentPosition).setIs_liked("False");
-                                    holder.community_no_of_like.setText(++number);
-                                }else{
-                                    communtyPostResultList.get(currentPosition).setIs_liked("True");
-                                    holder.community_no_of_like.setText(--number);
-                                }
-                                notifyDataSetChanged();
+                                refreshInterface.onRefresh();
+//                                int number = Integer.parseInt(holder.community_no_of_like.getText().toString());
+//                                if( communtyPostResultList.get(currentPosition).getIs_liked().equals("True")) {
+//                                    communtyPostResultList.get(currentPosition).setIs_liked("False");
+//                                    holder.community_no_of_like.setText(++number);
+//
+//
+//                                }else{
+//                                    communtyPostResultList.get(currentPosition).setIs_liked("True");
+//                                    holder.community_no_of_like.setText(--number);
+//                                }
+                             //   notifyDataSetChanged();
 
                             } else {
                                 Toast.makeText(context, "Something went wrong." , Toast.LENGTH_LONG).show();
