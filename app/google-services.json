@@ -1,70 +1,41 @@
 {
   "project_info": {
-    "project_number": "1028587675914",
-    "project_id": "alahmar-c0592",
-    "storage_bucket": "alahmar-c0592.appspot.com"
+    "project_number": "260823162724",
+    "project_id": "alahmar-4f6a6",
+    "storage_bucket": "alahmar-4f6a6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1028587675914:android:ead32b5315b80b02511af3",
+        "mobilesdk_app_id": "1:260823162724:android:9df3fb454490c151e56471",
         "android_client_info": {
-          "package_name": "com.webnmobapp.alahmar"
+          "package_name": "com.ngo.alahmaar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1028587675914-dkju2o4c0bahb1nd3peo6vl7ka2itlto.apps.googleusercontent.com",
+          "client_id": "260823162724-2gco1v3i6r5lbq9jsnf816eq12m63oj2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.webnmobapp.alahmar",
-            "certificate_hash": "b0dfd95eee555e6b949fc194ec41b888d56c4ad1"
+            "package_name": "com.ngo.alahmaar",
+            "certificate_hash": "406d082b9e37f920ac02a11feba852fc22294735"
           }
         },
         {
-          "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
+          "client_id": "260823162724-ifkc7597gfobso5v5iqn2k85kh9iufih.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCjejo3Cs-Z0zox7Yy0HZubN5VJfdEGimk"
+          "current_key": "AIzaSyCRiJjPS_rz8g7PdHz78kh1x8grVJTzSus"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1028587675914:android:9bdfbde3fcd6b2e2511af3",
-        "android_client_info": {
-          "package_name": "com.webnmobapps.alahmaar"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCjejo3Cs-Z0zox7Yy0HZubN5VJfdEGimk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1028587675914-bp62v13nf09n2pblp4slto17t7i11b3u.apps.googleusercontent.com",
+              "client_id": "260823162724-ifkc7597gfobso5v5iqn2k85kh9iufih.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

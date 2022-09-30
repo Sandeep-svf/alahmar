@@ -7,6 +7,18 @@
     android:layout_height="wrap_content">
 
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:text="Please enter OTP"
+
+        ></androidx.appcompat.widget.AppCompatTextView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
