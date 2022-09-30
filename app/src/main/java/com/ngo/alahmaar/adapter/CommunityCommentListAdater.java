@@ -67,11 +67,28 @@ public class CommunityCommentListAdater extends RecyclerView.Adapter<CommunityCo
     @Override
     public void onBindViewHolder(@NonNull CommunityCommentListViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        Glide.with(context).load(API_Client.BASE_IMAGE_URL+communityCommentListResultList.get(position).getImage()).placeholder(R.drawable.ic_launcher_background).into(holder.userImage);
+        try {
+            Glide.with(context).load(API_Client.BASE_IMAGE_URL+communityCommentListResultList.get(position).getImage())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(holder.userImage);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        try {
+            Log.e("listImage",API_Client.BASE_IMAGE_URL+communityCommentListResultList.get(position).getImage());
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
         holder.userName.setText(communityCommentListResultList.get(position).getUsername());
         holder.userComment.setText(communityCommentListResultList.get(position).getComment());
 
-        Log.e("dhfskjahfd",userId+"_"+communityCommentListResultList.get(position).getUser());
+        try {
+            Log.e("dhfskjahfd",userId+"_"+communityCommentListResultList.get(position).getUser());
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
 
 
         if(userId.equals(String.valueOf(communityCommentListResultList.get(position).getUser()))){
@@ -404,15 +421,11 @@ class CommunityCommentListViewHolder extends RecyclerView.ViewHolder {
     public CommunityCommentListViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        userImage  = itemView.findViewById(R.id.userImage);
+        userImage  = itemView.findViewById(R.id.userImage2145);
         userComment  = itemView.findViewById(R.id.userComment);
         userName  = itemView.findViewById(R.id.userName);
         delete  = itemView.findViewById(R.id.delete);
         edit  = itemView.findViewById(R.id.edit);
         edit_delete_layout  = itemView.findViewById(R.id.edit_delete_layout);
-
-
-
-
     }
 }

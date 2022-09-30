@@ -78,7 +78,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     change_password_api();
 
 
-                  //  user_account_verification();
+                    //  user_account_verification();
                 }
             }
         });
@@ -88,95 +88,95 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private void user_account_verification() {
 
-            // show till load api data
+        // show till load api data
 
-            final ProgressDialog pd = new ProgressDialog(this);
-            pd.setCancelable(false);
-            pd.setMessage("loading...");
-            pd.show();
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setCancelable(false);
+        pd.setMessage("loading...");
+        pd.show();
 
-            Call<UserAccountVerificationModel> call = API_Client.getClient().user_account_verification(userMobileData);
-            call.enqueue(new Callback<UserAccountVerificationModel>() {
-                @Override
-                public void onResponse(Call<UserAccountVerificationModel> call, Response<UserAccountVerificationModel> response) {
-                    pd.dismiss();
-                    try {
-                        //if api response is successful ,taking message and success
-                        if (response.isSuccessful()) {
-                            String message = response.body().getMsg();
-                            String success = String.valueOf(response.body().getSuccess());
+        Call<UserAccountVerificationModel> call = API_Client.getClient().user_account_verification(userMobileData);
+        call.enqueue(new Callback<UserAccountVerificationModel>() {
+            @Override
+            public void onResponse(Call<UserAccountVerificationModel> call, Response<UserAccountVerificationModel> response) {
+                pd.dismiss();
+                try {
+                    //if api response is successful ,taking message and success
+                    if (response.isSuccessful()) {
+                        String message = response.body().getMsg();
+                        String success = String.valueOf(response.body().getSuccess());
 
-                            if (success.equals("true") || success.equals("True")) {
-
-
-                                Log.e("OTPNUMBER","+"+countryCode + userMobileData);
-                             // if account exist than send verification code to user..
-                                sendVerificationCode("+"+countryCode + userMobileData);
-                                Toast.makeText(ForgotPasswordActivity.this, message, Toast.LENGTH_SHORT).show();
+                        if (success.equals("true") || success.equals("True")) {
 
 
-                            } else {
-                                Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
-                                pd.dismiss();
-                            }
+                            Log.e("OTPNUMBER","+"+countryCode + userMobileData);
+                            // if account exist than send verification code to user..
+                            sendVerificationCode("+"+countryCode + userMobileData);
+                            Toast.makeText(ForgotPasswordActivity.this, message, Toast.LENGTH_SHORT).show();
+
 
                         } else {
-                            try {
-                                JSONObject jObjError = new JSONObject(response.errorBody().string());
-                                Toast.makeText(getApplicationContext(), jObjError.getString("User is not registered."), Toast.LENGTH_LONG).show();
-                                switch (response.code()) {
-                                    case 400:
-                                        Toast.makeText(getApplicationContext(), "The server did not understand the request.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 401:
-                                        Toast.makeText(getApplicationContext(), "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 404:
-                                        Toast.makeText(getApplicationContext(), "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 500:
-                                        Toast.makeText(getApplicationContext(), "Internal Server Error..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 503:
-                                        Toast.makeText(getApplicationContext(), "Service Unavailable..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 504:
-                                        Toast.makeText(getApplicationContext(), "Gateway Timeout..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 511:
-                                        Toast.makeText(getApplicationContext(), "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    default:
-                                        Toast.makeText(getApplicationContext(), "unknown error", Toast.LENGTH_SHORT).show();
-                                        break;
-                                }
-
-                            } catch (Exception e) {
-                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
+                            Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
+                            pd.dismiss();
                         }
-                    } catch (
-                            Exception e) {
-                        e.printStackTrace();
-                    }
-                }
 
-                @Override
-                public void onFailure(Call<UserAccountVerificationModel> call, Throwable t) {
-                    Log.e("conversion issue", t.getMessage());
-
-                    if (t instanceof IOException) {
-                        Toast.makeText(getApplicationContext(), "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
                     } else {
-                        Log.e("conversion issue", t.getMessage());
-                        Toast.makeText(getApplicationContext(), "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
-                    }
-                }
-            });
+                        try {
+                            JSONObject jObjError = new JSONObject(response.errorBody().string());
+                            Toast.makeText(getApplicationContext(), jObjError.getString("User is not registered."), Toast.LENGTH_LONG).show();
+                            switch (response.code()) {
+                                case 400:
+                                    Toast.makeText(getApplicationContext(), "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 401:
+                                    Toast.makeText(getApplicationContext(), "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 404:
+                                    Toast.makeText(getApplicationContext(), "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 500:
+                                    Toast.makeText(getApplicationContext(), "Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 503:
+                                    Toast.makeText(getApplicationContext(), "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 504:
+                                    Toast.makeText(getApplicationContext(), "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 511:
+                                    Toast.makeText(getApplicationContext(), "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Toast.makeText(getApplicationContext(), "unknown error", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
 
-        }
+                        } catch (Exception e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (
+                        Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserAccountVerificationModel> call, Throwable t) {
+                Log.e("conversion issue", t.getMessage());
+
+                if (t instanceof IOException) {
+                    Toast.makeText(getApplicationContext(), "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                } else {
+                    Log.e("conversion issue", t.getMessage());
+                    Toast.makeText(getApplicationContext(), "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                }
+            }
+        });
+
+    }
 
     private void sendVerificationCode(String s) {
         // this method is used for getting
@@ -285,97 +285,97 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private void change_password_api() {
 
 
-            // show till load api data
+        // show till load api data
 
-            final ProgressDialog pd = new ProgressDialog(this);
-            pd.setCancelable(false);
-            pd.setMessage("loading...");
-            pd.show();
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setCancelable(false);
+        pd.setMessage("loading...");
+        pd.show();
 
-            Call<RegistrationModel> call = API_Client.getClient().reset_password(userMobileData,userNewPassword);
+        Call<RegistrationModel> call = API_Client.getClient().reset_password( userMobileData,userNewPassword);
 
-            call.enqueue(new Callback<RegistrationModel>() {
-                @Override
-                public void onResponse(Call<RegistrationModel> call, Response<RegistrationModel> response) {
-                    pd.dismiss();
-                    try {
-                        //if api response is successful ,taking message and success
-                        if (response.isSuccessful()) {
-                            String message = response.body().getMsg();
-                            String success = String.valueOf(response.body().getSuccess());
+        call.enqueue(new Callback<RegistrationModel>() {
+            @Override
+            public void onResponse(Call<RegistrationModel> call, Response<RegistrationModel> response) {
+                pd.dismiss();
+                try {
+                    //if api response is successful ,taking message and success
+                    if (response.isSuccessful()) {
+                        String message = response.body().getMsg();
+                        String success = String.valueOf(response.body().getSuccess());
 
 
 
-                            Log.e("djfklsdf",message+"ok");
+                        Log.e("djfklsdf",message+"ok");
 
-                            if (success.equals("true") || success.equals("True")) {
+                        if (success.equals("true") || success.equals("True")) {
 
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                startActivity(intent);
-                                finish();
-
-                            } else {
-                                Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
-                                pd.dismiss();
-                            }
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent);
+                            finish();
 
                         } else {
-                            try {
-                                JSONObject jObjError = new JSONObject(response.errorBody().string());
-                                Toast.makeText(getApplicationContext(), jObjError.getString("message"), Toast.LENGTH_LONG).show();
-                                switch (response.code()) {
-                                    case 400:
-                                        Toast.makeText(getApplicationContext(), "The server did not understand the request.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 401:
-                                        Toast.makeText(getApplicationContext(), "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 404:
-                                        Toast.makeText(getApplicationContext(), "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 500:
-                                        Toast.makeText(getApplicationContext(), "Internal Server Error..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 503:
-                                        Toast.makeText(getApplicationContext(), "Service Unavailable..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 504:
-                                        Toast.makeText(getApplicationContext(), "Gateway Timeout..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 511:
-                                        Toast.makeText(getApplicationContext(), "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    default:
-                                        Toast.makeText(getApplicationContext(), "unknown error", Toast.LENGTH_SHORT).show();
-                                        break;
-                                }
-
-                            } catch (Exception e) {
-                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
+                            Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
+                            pd.dismiss();
                         }
-                    } catch (
-                            Exception e) {
-                        e.printStackTrace();
-                    }
-                }
 
-                @Override
-                public void onFailure(Call<RegistrationModel> call, Throwable t) {
-                    Log.e("conversion issue", t.getMessage());
-
-                    if (t instanceof IOException) {
-                        Toast.makeText(getApplicationContext(), "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
                     } else {
-                        Log.e("conversion issue", t.getMessage());
-                        Toast.makeText(getApplicationContext(), "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
-                    }
-                }
-            });
+                        try {
+                            JSONObject jObjError = new JSONObject(response.errorBody().string());
+                            Toast.makeText(getApplicationContext(), jObjError.getString("message"), Toast.LENGTH_LONG).show();
+                            switch (response.code()) {
+                                case 400:
+                                    Toast.makeText(getApplicationContext(), "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 401:
+                                    Toast.makeText(getApplicationContext(), "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 404:
+                                    Toast.makeText(getApplicationContext(), "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 500:
+                                    Toast.makeText(getApplicationContext(), "Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 503:
+                                    Toast.makeText(getApplicationContext(), "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 504:
+                                    Toast.makeText(getApplicationContext(), "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 511:
+                                    Toast.makeText(getApplicationContext(), "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Toast.makeText(getApplicationContext(), "unknown error", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
 
-        }
+                        } catch (Exception e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (
+                        Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegistrationModel> call, Throwable t) {
+                Log.e("conversion issue", t.getMessage());
+
+                if (t instanceof IOException) {
+                    Toast.makeText(getApplicationContext(), "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                } else {
+                    Log.e("conversion issue", t.getMessage());
+                    Toast.makeText(getApplicationContext(), "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                }
+            }
+        });
+
+    }
 
 
     private void popup() {
@@ -383,64 +383,64 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         AlertDialog dialogs;
 
 
-            final LayoutInflater inflater = ForgotPasswordActivity.this.getLayoutInflater();
-            View alertLayout = inflater.inflate(R.layout.test_dialog_xml_otp, null);
-            final AppCompatButton continue_button = alertLayout.findViewById(R.id.continue_button);
-            final OtpTextView otpText = alertLayout.findViewById(R.id.otpText);
+        final LayoutInflater inflater = ForgotPasswordActivity.this.getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.test_dialog_xml_otp, null);
+        final AppCompatButton continue_button = alertLayout.findViewById(R.id.continue_button);
+        final OtpTextView otpText = alertLayout.findViewById(R.id.otpText);
 
 
 
-            final AlertDialog.Builder alert = new AlertDialog.Builder(ForgotPasswordActivity.this);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ForgotPasswordActivity.this);
 
-            alert.setView(alertLayout);
-            alert.setCancelable(false);
+        alert.setView(alertLayout);
+        alert.setCancelable(false);
 
-            dialogs = alert.create();
-            dialogs.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            dialogs.show();
-            dialogs.setCanceledOnTouchOutside(true);
-
-
-            continue_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        dialogs = alert.create();
+        dialogs.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogs.show();
+        dialogs.setCanceledOnTouchOutside(true);
 
 
-                    dialogs.dismiss();
-                    // call varification function here......
-                    userOtpData = otpText.getOTP();
+        continue_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                    if(userOtpData.equals("")){
-                        Toast.makeText(ForgotPasswordActivity.this, "Please enter valid OTP", Toast.LENGTH_SHORT).show();
-                    }else if(userOtpData.length()!=6){
-                        Toast.makeText(ForgotPasswordActivity.this, "Please enter valid OTP", Toast.LENGTH_SHORT).show();
 
-                    } else{
-                        verifyCode();
-                    }
+                dialogs.dismiss();
+                // call varification function here......
+                userOtpData = otpText.getOTP();
+
+                if(userOtpData.equals("")){
+                    Toast.makeText(ForgotPasswordActivity.this, "Please enter valid OTP", Toast.LENGTH_SHORT).show();
+                }else if(userOtpData.length()!=6){
+                    Toast.makeText(ForgotPasswordActivity.this, "Please enter valid OTP", Toast.LENGTH_SHORT).show();
+
+                } else{
+                    verifyCode();
                 }
-            });
-        }
+            }
+        });
+    }
 
     private void verifyCode() {
 
-            String code = userOtpData;
-            if ((!code.equals("")) && (code.length() == 6)) {
+        String code = userOtpData;
+        if ((!code.equals("")) && (code.length() == 6)) {
 
-                PhoneAuthCredential credential =
-                        PhoneAuthProvider.getCredential(phoneVerificationId, code);
-                signInWithPhoneAuthCredential(credential);
-            } else if (code.length() != 6) {
-                Toast.makeText(this, "Please enter six digit valid otp", Toast.LENGTH_SHORT).show();
+            PhoneAuthCredential credential =
+                    PhoneAuthProvider.getCredential(phoneVerificationId, code);
+            signInWithPhoneAuthCredential(credential);
+        } else if (code.length() != 6) {
+            Toast.makeText(this, "Please enter six digit valid otp", Toast.LENGTH_SHORT).show();
 
-            }
         }
+    }
 
     private boolean validation() {
 
         if(userMobileData.equals("")){
             Toast.makeText(ForgotPasswordActivity.this, "Please enter mobile number", Toast.LENGTH_SHORT).show();
-           return false;
+            return false;
         }else  if(userNewPassword.equals("")){
             Toast.makeText(ForgotPasswordActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
             return false;
@@ -465,6 +465,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         new_password_Edittext_FP = findViewById(R.id.new_password_Edittext_FP);
         confirm_new_password_Edittext_FP = findViewById(R.id.confirm_new_password_Edittext_FP);
         register_button = findViewById(R.id.register_button);
-         otpText= findViewById(R.id.otpText);
+        otpText= findViewById(R.id.otpText);
     }
 }

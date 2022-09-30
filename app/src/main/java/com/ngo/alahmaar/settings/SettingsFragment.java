@@ -147,7 +147,9 @@ public class SettingsFragment extends Fragment {
                                 }
 
                             } catch (Exception e) {
-                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                               // Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), "Your old password was entered incorrectly. Please enter it again.", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     } catch (

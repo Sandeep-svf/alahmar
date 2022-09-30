@@ -546,7 +546,11 @@ public class RegisterActivity extends AppCompatActivity {
             pd.setMessage("loading...");
             pd.show();
 
-            Call<RegistrationModel> call = API_Client.getClient().registration(UserNameData,UserEmailData,UserMobileData,UserPasswordData,filePart);
+            Call<RegistrationModel> call = API_Client.getClient().registration(UserNameData,
+                    UserEmailData,
+                    UserMobileData,
+                    UserPasswordData,
+                    filePart);
 
             call.enqueue(new Callback<RegistrationModel>() {
                 @Override

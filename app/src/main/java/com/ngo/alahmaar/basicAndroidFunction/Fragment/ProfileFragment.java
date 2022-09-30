@@ -87,6 +87,10 @@ public class ProfileFragment extends Fragment {
         finalAccessToken = "Bearer "+accessToken;
 
 
+        Log.e("checkValue",userID);
+        Log.e("checkValue",finalAccessToken);
+
+
         user_details_api();
 
         update_button_layout.setOnClickListener(new View.OnClickListener() {
@@ -206,21 +210,19 @@ public class ProfileFragment extends Fragment {
         RequestBody userEmailRB = RequestBody.create(MediaType.parse("text/plain"), userEmail);
         RequestBody userMobileNumberRB = RequestBody.create(MediaType.parse("text/plain"), userMobileNumber);
         RequestBody userIDRB = RequestBody.create(MediaType.parse("text/plain"), userID);
+        RequestBody finalAccessTokenRB = RequestBody.create(MediaType.parse("text/plain"), finalAccessToken);
 //        RequestBody IdImage = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(idImage));
 
+        MultipartBody.Part filePart;
 
-        MultipartBody.Part profile;
+//        MultipartBody.Part filePart = MultipartBody.Part.createFormData("image", profileImage.getName(), RequestBody.create(MediaType.parse("image/*"), profileImage));
 
-
-        if (profileImage == null) {
-
-            profile = MultipartBody.Part.createFormData("profile", "", RequestBody.create(MediaType.parse("image/*"), ""));
+       if (profileImage == null) {
+            filePart = MultipartBody.Part.createFormData("image", "", RequestBody.create(MediaType.parse("image/*"), ""));
             Log.e("Photo", String.valueOf(profileImage)+"null");
 
         } else {
-
-
-            profile = MultipartBody.Part.createFormData("profile", profileImage.getName(), RequestBody.create(MediaType.parse("image/*"), profileImage));
+            filePart = MultipartBody.Part.createFormData("image", profileImage.getName(), RequestBody.create(MediaType.parse("image/*"), profileImage));
             Log.e("Photo", String.valueOf(profileImage)+"value");
         }
 
@@ -233,7 +235,7 @@ public class ProfileFragment extends Fragment {
                 userNameRB,
                 userEmailRB ,
                 userMobileNumberRB,
-                profile);
+                filePart);
 
             call.enqueue(new Callback<GetUserProfileModel>() {
                 @Override
@@ -249,6 +251,7 @@ public class ProfileFragment extends Fragment {
                             if (success.equals("true") || success.equals("True")) {
 
                                 Toast.makeText(getActivity(), message , Toast.LENGTH_LONG).show();
+                                profileImage = null;
                                 user_details_api();
 
                             } else {
@@ -359,13 +362,11 @@ public class ProfileFragment extends Fragment {
                                // Glide.with(getActivity()).load(API_Client.BASE_IMAGE_URL+userProfile).placeholder(R.drawable.ic_launcher_background).into(add_user_profile_image);
 
 
-                                try {
-                                    Glide.with(getActivity()).load(API_Client.BASE_IMAGE_URL+userProfile123)
+
+                                    Glide.with(getActivity()).load(API_Client.BASE_IMAGE_URL+getUserProfileResult.getImage())
                                             .placeholder(R.drawable.ic_launcher_background)
                                             .into(add_user_profile_image);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+
 
 
                             } else {
@@ -490,10 +491,10 @@ public class ProfileFragment extends Fragment {
                     e.printStackTrace();
                 }
 
-                File file = new File(getRealPathFromURIs(imageUri5));
+                profileImage = new File(getRealPathFromURIs(imageUri5));
 
                 Glide.with(getActivity())
-                        .load(file)
+                        .load(profileImage)
                         .placeholder(R.drawable.ic_launcher_background)
                         .into(add_user_profile_image);
 

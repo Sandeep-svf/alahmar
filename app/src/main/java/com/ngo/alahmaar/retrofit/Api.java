@@ -70,14 +70,14 @@ public interface Api {
     @GET("event-details")
     Call<EventListModel> event_list();
 
-    @Headers("Content-Type: application/json")
+
     @GET("user-update-profile")
     Call<GetUserProfileModel> get_user_profile_details(@Header("authorization") String authorization);
 
     @Multipart
     @PUT("user-update-profile")
     Call<GetUserProfileModel> update_user_profile_details(@Header("authorization") String authorization,
-                                                          @Part("userId") RequestBody userId,
+                                                          @Part("id") RequestBody userId,
                                                           @Part("username") RequestBody username,
                                                           @Part("email") RequestBody email,
                                                           @Part("phone_number") RequestBody phone_number,
@@ -94,8 +94,9 @@ public interface Api {
 
 
     @FormUrlEncoded
-    @POST("rest-password")
-    Call<RegistrationModel>     reset_password (@Field("phone_number") String phone_number,
+    @POST("changepassword")
+    Call<RegistrationModel>  reset_password (
+                                             @Field("phone_number") String phone_number,
                                             @Field("new_password") String new_password);
 
 

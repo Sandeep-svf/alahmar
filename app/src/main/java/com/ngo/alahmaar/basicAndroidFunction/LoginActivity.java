@@ -134,7 +134,6 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("userImage", String.valueOf(userImage));
                                 editor.putString("userEmail", String.valueOf(userEmail));
                                 editor.putString("userName", String.valueOf(userName));
-
                                 editor.apply();
 
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
