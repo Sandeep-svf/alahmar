@@ -260,6 +260,9 @@ public class CommunityCommentListAdater extends RecyclerView.Adapter<CommunityCo
         final AppCompatEditText edittext = alertLayout.findViewById(R.id.edittext);
         final CircleImageView userImage = alertLayout.findViewById(R.id.userImage);
 
+
+        Log.e("dfjskdf",currentUserImage+"ok");
+
         Glide.with(alertLayout).load(API_Client.BASE_IMAGE_URL+currentUserImage).placeholder(R.drawable.ic_launcher_background).load(userImage);
         edittext.setText(commentString);
 
