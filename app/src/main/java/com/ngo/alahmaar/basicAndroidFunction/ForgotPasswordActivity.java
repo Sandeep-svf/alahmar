@@ -1,8 +1,7 @@
-package com.ngo.alahmaar.basicAndroidFunction;
+package com.webnmobapps.alahmaar.basicAndroidFunction;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -28,10 +27,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.ngo.alahmaar.R;
-import com.ngo.alahmaar.model.RegistrationModel;
-import com.ngo.alahmaar.model.UserAccountVerificationModel;
-import com.ngo.alahmaar.retrofit.API_Client;
+import com.webnmobapps.alahmaar.R;
+import com.webnmobapps.alahmaar.model.UserAccountVerificationModel;
+import com.webnmobapps.alahmaar.retrofit.API_Client;
 
 import org.json.JSONObject;
 
@@ -62,6 +60,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(ForgotPasswordActivity.this);
         context = ForgotPasswordActivity.this;
         FirebaseApp.getApps(context);
+
+
         mAuth = FirebaseAuth.getInstance();
 
         intis();
@@ -75,10 +75,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 get_form_data();
                 if(validation()){
 
-                    change_password_api();
-
-
-                  //  user_account_verification();
+                    user_account_verification();
                 }
             }
         });
@@ -108,8 +105,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
                             if (success.equals("true") || success.equals("True")) {
 
-
-                                Log.e("OTPNUMBER","+"+countryCode + userMobileData);
                              // if account exist than send verification code to user..
                                 sendVerificationCode("+"+countryCode + userMobileData);
                                 Toast.makeText(ForgotPasswordActivity.this, message, Toast.LENGTH_SHORT).show();
@@ -285,97 +280,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private void change_password_api() {
 
 
-            // show till load api data
-
-            final ProgressDialog pd = new ProgressDialog(this);
-            pd.setCancelable(false);
-            pd.setMessage("loading...");
-            pd.show();
-
-            Call<RegistrationModel> call = API_Client.getClient().reset_password(userMobileData,userNewPassword);
-
-            call.enqueue(new Callback<RegistrationModel>() {
-                @Override
-                public void onResponse(Call<RegistrationModel> call, Response<RegistrationModel> response) {
-                    pd.dismiss();
-                    try {
-                        //if api response is successful ,taking message and success
-                        if (response.isSuccessful()) {
-                            String message = response.body().getMsg();
-                            String success = String.valueOf(response.body().getSuccess());
 
 
 
-                            Log.e("djfklsdf",message+"ok");
 
-                            if (success.equals("true") || success.equals("True")) {
-
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                startActivity(intent);
-                                finish();
-
-                            } else {
-                                Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
-                                pd.dismiss();
-                            }
-
-                        } else {
-                            try {
-                                JSONObject jObjError = new JSONObject(response.errorBody().string());
-                                Toast.makeText(getApplicationContext(), jObjError.getString("message"), Toast.LENGTH_LONG).show();
-                                switch (response.code()) {
-                                    case 400:
-                                        Toast.makeText(getApplicationContext(), "The server did not understand the request.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 401:
-                                        Toast.makeText(getApplicationContext(), "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 404:
-                                        Toast.makeText(getApplicationContext(), "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 500:
-                                        Toast.makeText(getApplicationContext(), "Internal Server Error..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 503:
-                                        Toast.makeText(getApplicationContext(), "Service Unavailable..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 504:
-                                        Toast.makeText(getApplicationContext(), "Gateway Timeout..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 511:
-                                        Toast.makeText(getApplicationContext(), "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    default:
-                                        Toast.makeText(getApplicationContext(), "unknown error", Toast.LENGTH_SHORT).show();
-                                        break;
-                                }
-
-                            } catch (Exception e) {
-                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    } catch (
-                            Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<RegistrationModel> call, Throwable t) {
-                    Log.e("conversion issue", t.getMessage());
-
-                    if (t instanceof IOException) {
-                        Toast.makeText(getApplicationContext(), "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
-                    } else {
-                        Log.e("conversion issue", t.getMessage());
-                        Toast.makeText(getApplicationContext(), "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
-                    }
-                }
-            });
-
-        }
+    }
 
 
     private void popup() {
@@ -386,7 +295,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             final LayoutInflater inflater = ForgotPasswordActivity.this.getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.test_dialog_xml_otp, null);
             final AppCompatButton continue_button = alertLayout.findViewById(R.id.continue_button);
-            final OtpTextView otpText = alertLayout.findViewById(R.id.otpText);
 
 
 
