@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,8 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -32,6 +35,8 @@ import com.ngo.alahmaar.basicAndroidFunction.NotificationFragment;
 import com.ngo.alahmaar.basicAndroidFunction.donate.DonateFragment;
 import com.ngo.alahmaar.communityPost.CommunityFragment;
 import com.ngo.alahmaar.event.EventFragment;
+import com.ngo.alahmaar.model.GetUserProfileModel;
+import com.ngo.alahmaar.model.GetUserProfileResult;
 import com.ngo.alahmaar.model.RegistrationModel;
 import com.ngo.alahmaar.model.TotalNumberNotification;
 import com.ngo.alahmaar.retrofit.API_Client;
@@ -62,6 +67,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
     private String accessToken,finalAccessToken,refreshToken,userImage,userName,userEmail;
     ShapeableImageView userImageLayout;
     AppCompatTextView user_name_layout, user_email_layout;
+    private String userProfile;
 
 
     @Override
@@ -100,9 +106,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
 
         Log.e("Dfsdfasd",userEmail+userName+"ok");
 
-        Glide.with(MainActivity.this).load(API_Client.BASE_IMAGE_URL+userImage)
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(userImageLayout);
+
 
         user_name_layout.setText(userName);
         user_email_layout.setText(userEmail);
@@ -117,9 +121,133 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         Log.e("fsdfs",list.get(0).toString());
 
         total_number_notification();
+        user_details_api();
+        
+        
+        // 
+        
 
     }
+    public  void user_details_api() {
 
+
+     /*   // show till load api data
+
+        final ProgressDialog pd = new ProgressDialog(MainActivity.this);
+        pd.setCancelable(false);
+        pd.setMessage("loading...");
+        pd.show();*/
+
+        Call<GetUserProfileModel> call = API_Client.getClient().get_user_profile_details(finalAccessToken);
+
+        call.enqueue(new Callback<GetUserProfileModel>() {
+            @Override
+            public void onResponse(Call<GetUserProfileModel> call, Response<GetUserProfileModel> response) {
+              //  pd.dismiss();
+                try {
+                    //if api response is successful ,taking message and success
+                    if (response.isSuccessful()) {
+                        String message = response.body().getMsg();
+                        String success = String.valueOf(response.body().getSuccess());
+
+
+                        if (success.equals("true") || success.equals("True")) {
+
+
+                            GetUserProfileModel getUserProfileModel = response.body();
+                            GetUserProfileResult getUserProfileResult = getUserProfileModel.getData();
+
+                            //get value from api
+                           /* userName = getUserProfileResult.getUsername();
+                            userEmail = getUserProfileResult.getEmail();
+                            userMobileNumber = getUserProfileResult.getPhoneNumber();*/
+                              userProfile = getUserProfileResult.getImage();
+
+                            Glide.with(MainActivity.this).load(API_Client.BASE_IMAGE_URL+userProfile)
+                                    .placeholder(R.drawable.ic_launcher_background)
+                                    .into(userImageLayout);
+
+
+
+
+                          //  Log.e("api_details",userEmail+userName+userMobileNumber+userProfile);
+
+                       /*     // set value ....
+                            user_name.setText(userName);
+                            user_email.setText(userEmail);
+                            user_mobile_number.setText(userMobileNumber);
+                            // Glide.with(getActivity()).load(API_Client.BASE_IMAGE_URL+userProfile).placeholder(R.drawable.ic_launcher_background).into(add_user_profile_image);
+
+
+
+                            Glide.with(getActivity()).load(API_Client.BASE_IMAGE_URL+getUserProfileResult.getImage())
+                                    .placeholder(R.drawable.ic_launcher_background)
+                                    .into(add_user_profile_image);
+
+*/
+
+                        } else {
+                            Toast.makeText(MainActivity.this, message , Toast.LENGTH_LONG).show();
+                         //   pd.dismiss();
+                        }
+
+                    } else {
+                        try {
+                            JSONObject jObjError = new JSONObject(response.errorBody().string());
+                            Toast.makeText(MainActivity.this, jObjError.getString("message"), Toast.LENGTH_LONG).show();
+                            switch (response.code()) {
+                                case 400:
+                                    Toast.makeText(MainActivity.this, "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 401:
+                                    Toast.makeText(MainActivity.this, "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 404:
+                                    Toast.makeText(MainActivity.this, "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 500:
+                                    Toast.makeText(MainActivity.this, "Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 503:
+                                    Toast.makeText(MainActivity.this, "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 504:
+                                    Toast.makeText(MainActivity.this, "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 511:
+                                    Toast.makeText(MainActivity.this, "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Toast.makeText(MainActivity.this, "unknown error", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+
+                        } catch (Exception e) {
+                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (
+                        Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetUserProfileModel> call, Throwable t) {
+                Log.e("conversion issue", t.getMessage());
+
+                if (t instanceof IOException) {
+                    Toast.makeText(MainActivity.this, "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                   // pd.dismiss();
+                } else {
+                    Log.e("conversion issue", t.getMessage());
+                    Toast.makeText(MainActivity.this, "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                  //  pd.dismiss();
+                }
+            }
+        });
+
+    }
     private void total_number_notification() {
        
 
@@ -290,6 +418,8 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         {
             case R.id.btnMenu:
                 showMenu();
+                user_details_api();
+
                 break;
 
 
@@ -407,19 +537,48 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
                 
             case R.id.logout_layout:
                 //logout_api();
-                SharedPreferences getUserIdData = getSharedPreferences("AUTHENTICATION_FILE_NAME", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = getUserIdData.edit();
-                editor.putString("UserID", "");
-                editor.putString("accessToken", "");
-                editor.putString("refreshToken", "");
-                editor.apply();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.putExtra("finish", true);
-                startActivity(intent);
 
-                Toast.makeText(MainActivity.this, "User logout successfully", Toast.LENGTH_SHORT).show();
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.logout_dialog);
+                LinearLayout noDialogLogout = dialog.findViewById(R.id.noDialogLogout);
+                LinearLayout yesDialogLogout = dialog.findViewById(R.id.yesDialogLogout);
+
+
+                dialog.show();
+                Window window = dialog.getWindow();
+                window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+
+                yesDialogLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences getUserIdData = getSharedPreferences("AUTHENTICATION_FILE_NAME", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = getUserIdData.edit();
+                        editor.putString("UserID", "");
+                        editor.putString("accessToken", "");
+                        editor.putString("refreshToken", "");
+                        editor.apply();
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.putExtra("finish", true);
+                        startActivity(intent);
+
+                        Toast.makeText(MainActivity.this, "User logout successfully", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+
+
+                noDialogLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
 
                 break;
         }

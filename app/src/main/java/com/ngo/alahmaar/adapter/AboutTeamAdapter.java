@@ -1,6 +1,7 @@
 package com.ngo.alahmaar.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,9 +41,19 @@ public class AboutTeamAdapter extends RecyclerView.Adapter<AboutTeamViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull AboutTeamViewHolder holder, int position) {
 
-        Glide.with(context).load(API_Client.BASE_IMAGE_URL+aboutTeamDataList.get(position).getImage())
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(holder.userImage);
+        try {
+            Glide.with(context).load(API_Client.BASE_IMAGE_URL+aboutTeamDataList.get(position).getImage())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(holder.userImage);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        try {
+            Log.e("list_image",API_Client.BASE_IMAGE_URL+aboutTeamDataList.get(position).getImage());
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
 
         holder.userName.setText(aboutTeamDataList.get(position).getName());
         holder.userComment.setText(aboutTeamDataList.get(position).getDesignation());

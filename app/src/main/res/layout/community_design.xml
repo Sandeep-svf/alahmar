@@ -185,11 +185,11 @@ android:gravity="end"
                 android:layout_weight="5">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/community_no_of_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
 
-                    android:id="@+id/community_no_of_comment"
+                    android:layout_marginLeft="10dp"
 
                     android:gravity="end"
                     android:text="57 comments"
@@ -280,14 +280,14 @@ app:tint="@color/green_bg"
                 </androidx.appcompat.widget.AppCompatImageView>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/comment_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
 
-                    android:id="@+id/comment_layout"
-android:layout_alignParentRight="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
                     android:gravity="end"
-                    android:text="comments"
+                    android:text="comment"
                     android:textColor="@color/black"
                     android:textSize="14dp"
 

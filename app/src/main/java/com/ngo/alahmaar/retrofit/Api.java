@@ -94,7 +94,7 @@ public interface Api {
 
 
     @FormUrlEncoded
-    @POST("changepassword")
+    @POST("user-rest-password")
     Call<RegistrationModel>  reset_password (
                                              @Field("phone_number") String phone_number,
                                             @Field("new_password") String new_password);

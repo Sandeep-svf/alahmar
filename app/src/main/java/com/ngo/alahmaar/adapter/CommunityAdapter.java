@@ -71,8 +71,8 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
     public void onBindViewHolder(@NonNull CommunityViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         holder.community_post_description.setText(communtyPostResultList.get(position).getTopicDescription());
-        holder.community_no_of_comment.setText(String.valueOf(communtyPostResultList.get(position).getComment()+" Comment"));
-        holder.community_no_of_like.setText(String.valueOf(communtyPostResultList.get(position).getLikes()+" Like"));
+        holder.community_no_of_comment.setText(String.valueOf(communtyPostResultList.get(position).getComment()+" Comments"));
+        holder.community_no_of_like.setText(String.valueOf(communtyPostResultList.get(position).getLikes()+" Likes"));
         holder.community_headline.setText(communtyPostResultList.get(position).getHeaddings());
         holder.community_post_time.setText(communtyPostResultList.get(position).getDate());
 
@@ -494,7 +494,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
                                 //
                                 communityCommentListResultList = response.body().getData();
 
-                                Toast.makeText(context, "List size is:"+communityCommentListResultList.size(), Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(context, "List size is:"+communityCommentListResultList.size(), Toast.LENGTH_SHORT).show();
 
                                 if(communityCommentListResultList.isEmpty()){
                                     Toast.makeText(context, "This post doesn't have any comment yet", Toast.LENGTH_SHORT).show();
