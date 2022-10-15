@@ -175,15 +175,14 @@ app:layout_constraintVertical_bias="0.4"
                 >
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:textColor="@color/black"
                     android:id="@+id/user_messages_CF"
                     app:layout_constraintWidth_percent="0.9"
-                    android:inputType="textEmailAddress"
                     android:background="@null"
                     android:hint="Message"
                     android:textStyle="normal"

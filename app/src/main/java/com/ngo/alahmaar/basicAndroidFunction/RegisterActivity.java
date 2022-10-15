@@ -612,6 +612,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if (success.equals("true") || success.equals("True")) {
                                 Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
 
+                                userProfileImageData = null;
                                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);
 
@@ -698,6 +699,9 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         }else if(!userPasswordData.equals( userConfirmPasswordData)){
             Toast.makeText(RegisterActivity.this, "Password did not match.", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(userProfileImageData==null){
+            Toast.makeText(RegisterActivity.this, "Please add user image.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
