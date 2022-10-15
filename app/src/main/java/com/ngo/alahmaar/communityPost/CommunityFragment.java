@@ -51,14 +51,11 @@ public class CommunityFragment extends Fragment implements RefreshInterface {
         accessToken = getUserIdData.getString("accessToken", "");
         userID = getUserIdData.getString("UserID", "");
         finalAccessToken = "Bearer "+accessToken;
-
-
-
         rcv_community = view.findViewById(R.id.rcv_community);
 
 
 
-        //community_list_api();
+        community_list_api();
 
         return view;
     }

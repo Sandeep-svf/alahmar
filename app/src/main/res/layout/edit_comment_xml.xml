@@ -82,6 +82,7 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edittext"
+        android:paddingEnd="5dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bubble_message2"
