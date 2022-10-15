@@ -63,8 +63,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityViewHolder> 
     @Override
     public CommunityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.community_design, parent, false);
-        CommunityViewHolder myViewHolder = new CommunityViewHolder(view);
-        return myViewHolder;
+        return new  CommunityViewHolder(view);
     }
 
     @Override

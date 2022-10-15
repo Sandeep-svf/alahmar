@@ -1,12 +1,15 @@
 package com.ngo.alahmaar.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +17,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ngo.alahmaar.MainActivity;
 import com.ngo.alahmaar.R;
 import com.ngo.alahmaar.model.CommonSuccessMsgModel;
 import com.ngo.alahmaar.model.NotificationListResult;
@@ -62,11 +66,36 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationViewHo
 
 
                 // open popup
+                final Dialog dialog = new Dialog(context);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.delete_dialog);
+                LinearLayout noDialogLogout = dialog.findViewById(R.id.noDialogLogout);
+                LinearLayout yesDialogLogout = dialog.findViewById(R.id.yesDialogLogout);
 
-                String notificationId = String.valueOf(notificationListResultList.get(position).getId());
+
+                dialog.show();
+                Window window = dialog.getWindow();
+                window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
 
-                notificaiton_single_delete_api(notificationId, position);
+                yesDialogLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //code
+                        String notificationId = String.valueOf(notificationListResultList.get(position).getId());
+                        notificaiton_single_delete_api(notificationId, position);
+                        dialog.dismiss();
+                    }
+                });
+
+                noDialogLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
             }
         });
     }

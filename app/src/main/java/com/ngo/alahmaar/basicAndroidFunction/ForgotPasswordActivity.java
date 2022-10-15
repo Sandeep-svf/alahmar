@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -52,6 +54,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Context context;
     OtpTextView otpText;
+    AppCompatImageView hiden_password_image, visibale_password_image
+            , hiden_c_password_image, visibale_c_password_image;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,7 +70,47 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         intis();
 
+        hiden_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                visibale_password_image.setVisibility(View.VISIBLE);
+                hiden_password_image.setVisibility(View.GONE);
+                new_password_Edittext_FP.setTransformationMethod(null);
+                new_password_Edittext_FP.setSelection(new_password_Edittext_FP.getText().length());
 
+            }
+        });
+        visibale_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hiden_password_image.setVisibility(View.VISIBLE);
+                visibale_password_image.setVisibility(View.GONE);
+
+                new_password_Edittext_FP.setTransformationMethod(new PasswordTransformationMethod());
+                new_password_Edittext_FP.setSelection(new_password_Edittext_FP.getText().length());
+            }
+        });
+
+        hiden_c_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                visibale_c_password_image.setVisibility(View.VISIBLE);
+                hiden_c_password_image.setVisibility(View.GONE);
+                confirm_new_password_Edittext_FP.setTransformationMethod(null);
+                confirm_new_password_Edittext_FP.setSelection(confirm_new_password_Edittext_FP.getText().length());
+
+            }
+        });
+        visibale_c_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hiden_c_password_image.setVisibility(View.VISIBLE);
+                visibale_c_password_image.setVisibility(View.GONE);
+
+                confirm_new_password_Edittext_FP.setTransformationMethod(new PasswordTransformationMethod());
+                confirm_new_password_Edittext_FP.setSelection(confirm_new_password_Edittext_FP.getText().length());
+            }
+        });
 
 
         register_button.setOnClickListener(new View.OnClickListener() {
@@ -464,6 +508,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void intis() {
+        visibale_c_password_image = findViewById(R.id.visibale_c_password_image);
+        visibale_password_image = findViewById(R.id.visibale_password_image);
+        hiden_c_password_image = findViewById(R.id.hiden_c_password_image);
+        hiden_password_image = findViewById(R.id.hiden_password_image);
         mobile_number_Edittext_FP = findViewById(R.id.mobile_number_Edittext_FP);
         new_password_Edittext_FP = findViewById(R.id.new_password_Edittext_FP);
         confirm_new_password_Edittext_FP = findViewById(R.id.confirm_new_password_Edittext_FP);

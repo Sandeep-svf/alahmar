@@ -162,6 +162,12 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
                             userEmail = getUserProfileResult.getEmail();
                             userMobileNumber = getUserProfileResult.getPhoneNumber();*/
                               userProfile = getUserProfileResult.getImage();
+                              user_name_layout.setText(getUserProfileResult.getUsername());
+                            user_email_layout.setText(getUserProfileResult.getEmail());
+
+                            SharedPreferences getUserIdData = getSharedPreferences("AUTHENTICATION_FILE_NAME", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = getUserIdData.edit();
+                            editor.putString("userName", String.valueOf(getUserProfileResult.getUsername()));
 
                             Glide.with(MainActivity.this).load(API_Client.BASE_IMAGE_URL+userProfile)
                                     .placeholder(R.drawable.ic_launcher_background)

@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.bumptech.glide.Glide;
@@ -88,6 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
     OtpTextView otpText;
     private ContentValues values5;
     private Uri imageUri5;
+    AppCompatImageView hiden_password_image, visibale_password_image
+            , hiden_c_password_image, visibale_c_password_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +106,48 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance(FirebaseApp.initializeApp(RegisterActivity.this));
 
+
+        hiden_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                visibale_password_image.setVisibility(View.VISIBLE);
+                hiden_password_image.setVisibility(View.GONE);
+                password_Edittext_register.setTransformationMethod(null);
+                password_Edittext_register.setSelection(password_Edittext_register.getText().length());
+
+            }
+        });
+        visibale_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hiden_password_image.setVisibility(View.VISIBLE);
+                visibale_password_image.setVisibility(View.GONE);
+
+                password_Edittext_register.setTransformationMethod(new PasswordTransformationMethod());
+                password_Edittext_register.setSelection(password_Edittext_register.getText().length());
+            }
+        });
+
+        hiden_c_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                visibale_c_password_image.setVisibility(View.VISIBLE);
+                hiden_c_password_image.setVisibility(View.GONE);
+                confirm_password_Edittext_register.setTransformationMethod(null);
+                confirm_password_Edittext_register.setSelection(confirm_password_Edittext_register.getText().length());
+
+            }
+        });
+        visibale_c_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hiden_c_password_image.setVisibility(View.VISIBLE);
+                visibale_c_password_image.setVisibility(View.GONE);
+
+                confirm_password_Edittext_register.setTransformationMethod(new PasswordTransformationMethod());
+                confirm_password_Edittext_register.setSelection(confirm_password_Edittext_register.getText().length());
+            }
+        });
 
         add_image_layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -670,6 +716,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void intis() {
+        visibale_c_password_image = findViewById(R.id.visibale_c_password_image);
+        visibale_password_image = findViewById(R.id.visibale_password_image);
+        hiden_c_password_image = findViewById(R.id.hiden_c_password_image);
+        hiden_password_image = findViewById(R.id.hiden_password_image);
         back_to_login = findViewById(R.id.back_to_login);
         user_profile_image = findViewById(R.id.user_profile_image);
         register_button = findViewById(R.id.register_button);

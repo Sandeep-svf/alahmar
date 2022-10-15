@@ -40,6 +40,7 @@ public class CommunityFragment extends Fragment implements RefreshInterface {
     List<CommuntyPostResult> communtyPostResultList= new ArrayList<>();
     private String accessToken, finalAccessToken,userID;
     RefreshInterface refreshInterface;
+    CommunityAdapter communityAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +56,7 @@ public class CommunityFragment extends Fragment implements RefreshInterface {
 
 
 
-        community_list_api();
+       // community_list_api();
 
         return view;
     }
@@ -104,7 +105,7 @@ public class CommunityFragment extends Fragment implements RefreshInterface {
                                 rcv_community.setLayoutManager(linearLayoutManager);
                                 // Log.e("SAM","List size: "+formListModelList.size());
                                 // Toast.makeText(getActivity(), "community list api calling sucessfuly....", Toast.LENGTH_SHORT).show();
-                                CommunityAdapter communityAdapter = new CommunityAdapter(getActivity(),communtyPostResultList,userID,finalAccessToken,refreshInterface);
+                                 communityAdapter = new CommunityAdapter(getActivity(),communtyPostResultList,userID,finalAccessToken,refreshInterface);
                                 rcv_community.setAdapter(communityAdapter);
 
                             } else {

@@ -46,6 +46,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/community_comment_layout_xml.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/community_design.xml" value="0.24732824427480915" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/delete_comment_xml.xml" value="0.209375" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/delete_dialog.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/edit_comment_xml.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/event_design.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/event_design2.xml" value="0.209375" />
@@ -60,6 +61,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/fragment_event.xml" value="0.1953125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/fragment_notification.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/fragment_profile.xml" value="0.18" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/fragment_settings.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/fragment_user_forms.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/logout_dialog.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/menu.xml" value="0.18" />

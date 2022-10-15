@@ -170,7 +170,7 @@
                     app:layout_constraintWidth_percent="0.8"
                     app:layout_constraintHorizontal_bias="0.9"
                     android:background="@null"
-                    android:textColor="@color/black"
+                   
                     android:gravity="center_vertical"
                     android:textSize="14dp"
                     >
@@ -223,7 +223,7 @@
                     app:layout_constraintWidth_percent="0.8"
                     app:layout_constraintHorizontal_bias="0.9"
                     android:background="@null"
-                    android:textColor="@color/black"
+                  
                     android:gravity="center_vertical"
                     android:textSize="14dp"
                     >
@@ -292,7 +292,7 @@
                     app:layout_constraintWidth_percent="0.8"
                     app:layout_constraintHorizontal_bias="0.9"
                     android:background="@null"
-                    android:textColor="@color/black"
+                   
                     android:gravity="center_vertical"
                     android:textSize="14dp"
                     >
@@ -345,7 +345,7 @@
                     app:layout_constraintWidth_percent="0.8"
                     app:layout_constraintHorizontal_bias="0.9"
                     android:background="@null"
-                    android:textColor="@color/black"
+                   
                     android:gravity="center_vertical"
                     android:textSize="14dp"
                     >
@@ -413,7 +413,7 @@
                     app:layout_constraintWidth_percent="0.8"
                     app:layout_constraintHorizontal_bias="0.9"
                     android:background="@null"
-                    android:textColor="@color/black"
+                   
                     android:gravity="center_vertical"
                     android:textSize="14dp"
                     >
@@ -466,7 +466,7 @@
                     app:layout_constraintWidth_percent="0.8"
                     app:layout_constraintHorizontal_bias="0.9"
                     android:background="@null"
-                    android:textColor="@color/black"
+                   
                     android:gravity="center_vertical"
                     android:textSize="14dp"
                     >

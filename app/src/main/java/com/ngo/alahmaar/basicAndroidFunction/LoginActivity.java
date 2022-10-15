@@ -5,13 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.ngo.alahmaar.MainActivity;
@@ -35,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     AppCompatEditText user_email_edittext,uesr_password_edittext;
     private String userEmailData, userPasswordData;
     private String accessToken, refreshToken, userId;
+    AppCompatImageView   hiden_password_image, visibale_password_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,27 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        hiden_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                visibale_password_image.setVisibility(View.VISIBLE);
+                hiden_password_image.setVisibility(View.GONE);
+                uesr_password_edittext.setTransformationMethod(null);
+                uesr_password_edittext.setSelection(uesr_password_edittext.getText().length());
+
+            }
+        });
+        visibale_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hiden_password_image.setVisibility(View.VISIBLE);
+                visibale_password_image.setVisibility(View.GONE);
+
+                uesr_password_edittext.setTransformationMethod(new PasswordTransformationMethod());
+                uesr_password_edittext.setSelection(uesr_password_edittext.getText().length());
+            }
+        });
+
 
 
         login_button.setOnClickListener(new View.OnClickListener() {
@@ -223,6 +248,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void inits() {
+        visibale_password_image = findViewById(R.id.visibale_password_image);
+        hiden_password_image = findViewById(R.id.hiden_password_image);
         register_layout = findViewById(R.id.register_layout);
         login_button = findViewById(R.id.login_button);
         user_email_edittext = findViewById(R.id.user_email_edittext);

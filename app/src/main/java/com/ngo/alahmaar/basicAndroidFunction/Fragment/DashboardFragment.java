@@ -58,7 +58,7 @@ public class DashboardFragment extends Fragment {
        // accessToken = getUserIdData.getString("accessToken", "");
        // refreshToken = getUserIdData.getString("refreshToken", "");
         accessToken = getUserIdData.getString("accessToken", "");
-        userName = getUserIdData.getString("userName", "");
+       // userName = getUserIdData.getString("userName", "");
         userName = getUserIdData.getString("userName", "");
         finalAccessToken = "Bearer "+accessToken;
 

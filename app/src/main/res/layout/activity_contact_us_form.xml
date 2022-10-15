@@ -106,16 +106,14 @@ app:layout_constraintVertical_bias="0.4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-
+                    android:textColor="@color/black"
                     android:id="@+id/user_name_CU"
                     app:layout_constraintWidth_percent="0.9"
-
                     android:background="@null"
                     android:hint="Name"
                     android:textStyle="normal"
                     android:textSize="14dp"
-                    android:gravity="center_vertical"
-                    >
+                    android:gravity="center_vertical">
 
                 </androidx.appcompat.widget.AppCompatEditText>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -144,6 +142,7 @@ app:layout_constraintVertical_bias="0.4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
 
+                    android:textColor="@color/black"
                     android:id="@+id/user_email_CF"
 
                     app:layout_constraintWidth_percent="0.9"
@@ -181,16 +180,14 @@ app:layout_constraintVertical_bias="0.4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-
+                    android:textColor="@color/black"
                     android:id="@+id/user_messages_CF"
                     app:layout_constraintWidth_percent="0.9"
                     android:inputType="textEmailAddress"
                     android:background="@null"
                     android:hint="Message"
                     android:textStyle="normal"
-                    android:textSize="14dp"
-
-                    >
+                    android:textSize="14dp">
 
                 </androidx.appcompat.widget.AppCompatEditText>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -199,7 +196,6 @@ app:layout_constraintVertical_bias="0.4"
             android:id="@+id/submit_contact_us_form_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
-
             android:layout_margin="10dp"
             android:background="@drawable/ic_continue_credentials"
             android:gravity="center"
@@ -213,7 +209,6 @@ app:layout_constraintVertical_bias="0.4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-
             app:layout_constraintVertical_bias="0.93"
             app:layout_constraintWidth_percent="0.4">
 
