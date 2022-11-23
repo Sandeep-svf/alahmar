@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         hiden_password_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
         visibale_password_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +76,8 @@ public class LoginActivity extends AppCompatActivity {
                 uesr_password_edittext.setSelection(uesr_password_edittext.getText().length());
             }
         });
+
+
 
 
 

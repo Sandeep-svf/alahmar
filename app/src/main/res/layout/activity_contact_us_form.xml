@@ -11,38 +11,25 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-
-
         app:layout_constraintTop_toTopOf="parent"
-
         app:layout_constraintWidth_percent="0.35"
         android:scaleType="fitXY"
         android:src="@drawable/circal"
         app:layout_constraintHeight_percent="0.2"
-
         >
 
     </androidx.appcompat.widget.AppCompatImageView>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-
-
-
         app:layout_constraintWidth_percent="0.9"
-
         app:layout_constraintHeight_percent="0.65"
-
         android:background="@drawable/custom_bg"
-
-        app:layout_constraintVertical_bias="0.8"
-        >
+        app:layout_constraintVertical_bias="0.8">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"

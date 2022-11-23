@@ -60,7 +60,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
     AppCompatImageView btnMenu,img_notification;
     public static AppCompatTextView title;
     AppCompatTextView text_notification;
-    RelativeLayout dashboard_layout,contact_us_layout,event_layout,community_layout,donate_layout,
+    RelativeLayout dashboard_layout,contact_us_layout,check_price,community_layout,donate_layout,
             about_layout,transection_layout,setting_layout,logout_layout;
     ConstraintLayout container,edit_profile_layout;
     RelativeLayout relative_notification;
@@ -83,7 +83,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         edit_profile_layout.setOnClickListener(this::onClick);
         contact_us_layout.setOnClickListener(this::onClick);
         dashboard_layout.setOnClickListener(this::onClick);
-        event_layout.setOnClickListener(this::onClick);
+        check_price.setOnClickListener(this::onClick);
         community_layout.setOnClickListener(this::onClick);
         donate_layout.setOnClickListener(this::onClick);
         about_layout.setOnClickListener(this::onClick);
@@ -392,7 +392,6 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         text_notification= (AppCompatTextView) findViewById(R.id.text_notification);
         dashboard_layout= (RelativeLayout) findViewById(R.id.dashboard_layout);
         contact_us_layout= (RelativeLayout) findViewById(R.id.contact_us_layout);
-        event_layout= (RelativeLayout) findViewById(R.id.event_layout);
         community_layout= (RelativeLayout) findViewById(R.id.community_layout);
         donate_layout= (RelativeLayout) findViewById(R.id.donate_layout);
         about_layout= (RelativeLayout) findViewById(R.id.about_layout);

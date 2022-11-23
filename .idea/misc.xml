@@ -20,6 +20,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/custom_bg5.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/custom_bg6.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/custom_bg7.xml" value="0.19907407407407407" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.16111111111111112" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.19722222222222222" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.19722222222222222" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/ic_continue_credentials.xml" value="0.11614583333333334" />
@@ -27,7 +28,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/drawable/text_color.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/about_team_design.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_change_password.xml" value="0.209375" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_contact_us_form.xml" value="0.33" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_contact_us_form.xml" value="0.18" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_demo_kotlin.xml" value="0.209375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_event_details.xml" value="0.2" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/alahmar2/app/src/main/res/layout/activity_forgot_password.xml" value="0.16" />
