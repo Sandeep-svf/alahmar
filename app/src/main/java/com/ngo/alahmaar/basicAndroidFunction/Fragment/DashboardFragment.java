@@ -83,6 +83,8 @@ public class DashboardFragment extends Fragment {
                 EventFragment eventFragment = new EventFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 MainActivity.load_home_fragment(eventFragment, fragmentManager);
+
+                MainActivity.title.setText("Event");
             }
         });
         community_layout.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +93,7 @@ public class DashboardFragment extends Fragment {
                 CommunityFragment eventFragment = new CommunityFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 MainActivity.load_home_fragment(eventFragment, fragmentManager);
+                MainActivity.title.setText("Community");
             }
         });
         forms_layout.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +102,7 @@ public class DashboardFragment extends Fragment {
                 UserFormsFragment eventFragment = new UserFormsFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 MainActivity.load_home_fragment(eventFragment, fragmentManager);
+                MainActivity.title.setText("Forms");
             }
         });
         donate_layout.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +111,7 @@ public class DashboardFragment extends Fragment {
                 DonateFragment eventFragment = new DonateFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 MainActivity.load_home_fragment(eventFragment, fragmentManager);
+                MainActivity.title.setText("Donate");
             }
         });
         about_us_layout.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +120,7 @@ public class DashboardFragment extends Fragment {
                 AboutFragment eventFragment = new AboutFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 MainActivity.load_home_fragment(eventFragment, fragmentManager);
+                MainActivity.title.setText("About Us");
             }
         });
 
@@ -125,6 +131,8 @@ public class DashboardFragment extends Fragment {
                 AboutTeamFragment aboutTeamFragment = new AboutTeamFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 MainActivity.load_home_fragment(aboutTeamFragment,fragmentManager);
+
+                MainActivity.title.setText("About Team");
             }
         });
 

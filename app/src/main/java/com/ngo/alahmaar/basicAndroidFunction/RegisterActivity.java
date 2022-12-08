@@ -610,6 +610,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                             if (success.equals("true") || success.equals("True")) {
+                                //Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
                                 Toast.makeText(getApplicationContext(), message , Toast.LENGTH_LONG).show();
 
                                 userProfileImageData = null;

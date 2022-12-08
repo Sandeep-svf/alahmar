@@ -461,6 +461,21 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
                 getSlidingMenu().toggle();
                 break;
 
+            case R.id.check_price:
+                title.setText("Event");
+
+                EventFragment dashboardFragment2 = new EventFragment();
+                FragmentManager fragmentManager_two2 = getSupportFragmentManager();
+                ((ConstraintLayout) findViewById(R.id.container)).removeAllViews();
+                FragmentTransaction fragmentTransaction22 = fragmentManager_two2.beginTransaction();
+                fragmentTransaction22.setCustomAnimations(R.anim.slid_in_right, R.anim.slide_in_left);
+                fragmentTransaction22.add(R.id.container, dashboardFragment2);
+                fragmentTransaction22.commit();
+                getSlidingMenu().toggle();
+
+
+                break;
+
             case R.id.event_layout:
                 title.setText("Event");
                 EventFragment eventFragment = new EventFragment();
@@ -506,7 +521,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
                 getSlidingMenu().toggle();
                 break;
             case R.id.setting_layout:
-                title.setText("Chane Password");
+                title.setText("Change Password");
                 SettingsFragment settingsFragment = new SettingsFragment();
                 FragmentManager fragmentManager_seven = getSupportFragmentManager();
                 ((ConstraintLayout) findViewById(R.id.container)).removeAllViews();
