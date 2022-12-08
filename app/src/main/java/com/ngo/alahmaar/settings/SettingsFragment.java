@@ -7,8 +7,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +35,8 @@ public class SettingsFragment extends Fragment {
     AppCompatEditText old_Password_edittext, new_password_edittext, confirm_new_password_edittext;
     AppCompatButton update_password_button_layout;
     private String oldPassword, newPassword, confirmNewPassword,accessToken,finalAccessToken;
+    private AppCompatImageView hiden_password_image, c_hiden_password_image, visibale_password_image, c_visibale_password_image;
+
 
 
     @Override
@@ -52,6 +56,55 @@ public class SettingsFragment extends Fragment {
 
 
         Log.e("apicall","setting fragment  calling");
+
+
+        hiden_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                visibale_password_image.setVisibility(View.VISIBLE);
+                hiden_password_image.setVisibility(View.GONE);
+                new_password_edittext.setTransformationMethod(null);
+                new_password_edittext.setSelection(new_password_edittext.getText().length());
+
+            }
+        });
+
+        visibale_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hiden_password_image.setVisibility(View.VISIBLE);
+                visibale_password_image.setVisibility(View.GONE);
+
+                new_password_edittext.setTransformationMethod(new PasswordTransformationMethod());
+                new_password_edittext.setSelection(new_password_edittext.getText().length());
+            }
+        });
+
+
+        c_hiden_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                c_visibale_password_image.setVisibility(View.VISIBLE);
+                c_hiden_password_image.setVisibility(View.GONE);
+                confirm_new_password_edittext.setTransformationMethod(null);
+                confirm_new_password_edittext.setSelection(confirm_new_password_edittext.getText().length());
+
+            }
+        });
+
+        c_visibale_password_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                c_hiden_password_image.setVisibility(View.VISIBLE);
+                c_visibale_password_image.setVisibility(View.GONE);
+
+                confirm_new_password_edittext.setTransformationMethod(new PasswordTransformationMethod());
+                confirm_new_password_edittext.setSelection(confirm_new_password_edittext.getText().length());
+            }
+        });
+
+
+
 
         update_password_button_layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,6 +253,10 @@ public class SettingsFragment extends Fragment {
     }
 
     private void inits(View view) {
+        hiden_password_image = view.findViewById(R.id.hiden_password_image);
+        c_hiden_password_image = view.findViewById(R.id.c_hiden_password_image);
+        visibale_password_image = view.findViewById(R.id.visibale_password_image);
+        c_visibale_password_image = view.findViewById(R.id.c_visibale_password_image);
         update_password_button_layout = view.findViewById(R.id.update_password_button_layout);
         old_Password_edittext = view.findViewById(R.id.old_Password_edittext);
         new_password_edittext = view.findViewById(R.id.new_password_edittext);

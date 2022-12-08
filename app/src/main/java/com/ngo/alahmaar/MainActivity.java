@@ -404,6 +404,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         user_name_layout= (AppCompatTextView) findViewById(R.id.user_name_layout);
         user_email_layout= (AppCompatTextView) findViewById(R.id.user_email_layout);
         userImageLayout= (ShapeableImageView) findViewById(R.id.userImageLayout);
+        check_price= (RelativeLayout) findViewById(R.id.check_price);
 
     }
 

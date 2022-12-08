@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="210dp"
@@ -17,17 +18,16 @@
             android:layout_height="0dp"
 
             android:scaleType="centerCrop"
-            app:layout_constraintWidth_percent="0.3"
-            app:layout_constraintHeight_percent="0.5"
-            app:shapeAppearanceOverlay="@style/roundedImageView2"
+            android:src="@drawable/user_profile2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
 
-            app:layout_constraintHorizontal_bias="0.1"
-            android:src="@drawable/user_profile2"
-          />
+            app:layout_constraintWidth_percent="0.3"
+            app:shapeAppearanceOverlay="@style/roundedImageView2" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,14 +36,13 @@
             android:layout_height="0dp"
 
 
-            app:layout_constraintWidth_percent="0.6"
-            app:layout_constraintHeight_percent="0.5"
-            app:shapeAppearanceOverlay="@style/roundedImageView2"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintTop_toTopOf="parent"
 
+            app:layout_constraintWidth_percent="0.6"
+            app:shapeAppearanceOverlay="@style/roundedImageView2"
 
 
             >
@@ -51,73 +50,73 @@
             <androidx.appcompat.widget.AppCompatTextView
 
 
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-
                 android:id="@+id/user_name_layout"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="0dp"
 
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
+                android:text="Lena Wilson"
 
                 android:textColor="@color/white"
+
                 android:textSize="22dp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
 
-                android:text="Lena Wilson"
+                app:layout_constraintTop_toTopOf="parent"
 
                 ></androidx.appcompat.widget.AppCompatTextView>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-
                 android:id="@+id/user_email_layout"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="0dp"
 
-                app:layout_constraintTop_toBottomOf="@+id/user_name_layout"
+                android:layout_height="wrap_content"
+                android:text="abc@gmail.com"
 
                 android:textColor="@color/white"
+
                 android:textSize="14dp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
 
-                android:text="abc@gmail.com"
+                app:layout_constraintTop_toBottomOf="@+id/user_name_layout"
 
                 ></androidx.appcompat.widget.AppCompatTextView>
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-
                 android:id="@+id/edit_profile_layout"
-                android:background="@drawable/custom_bg5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_email_layout"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="0dp"
 
+                android:layout_height="0dp"
+                android:background="@drawable/custom_bg5"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="0.35"
-                app:layout_constraintWidth_percent="0.8"
-                >
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@+id/user_email_layout"
+                app:layout_constraintWidth_percent="0.8">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
 
 
-                    app:layout_constraintWidth_percent="0.9"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:gravity="center"
+                    android:text="Edit Proifle"
 
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-android:gravity="center"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
 
-                    android:text="Edit Proifle"
+                    app:layout_constraintWidth_percent="0.9"
 
                     ></androidx.appcompat.widget.AppCompatTextView>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -129,10 +128,12 @@ android:gravity="center"
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:id="@+id/dashboard_layout"
                 android:layout_width="match_parent"
@@ -169,7 +170,8 @@ android:gravity="center"
                 android:id="@+id/das_view2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
+
             <RelativeLayout
                 android:id="@+id/check_price"
                 android:layout_width="match_parent"
@@ -183,7 +185,7 @@ android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/event_new"
-                    app:tint="@color/white_dark" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/event_text"
@@ -206,7 +208,7 @@ android:gravity="center"
                 android:id="@+id/das_view3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
 
             <RelativeLayout
                 android:id="@+id/community_layout"
@@ -221,7 +223,7 @@ android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/communnity_new"
-                    app:tint="@color/white_dark" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/community_text"
@@ -244,7 +246,7 @@ android:gravity="center"
                 android:id="@+id/das_view4"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
 
             <RelativeLayout
                 android:id="@+id/donate_layout"
@@ -259,7 +261,7 @@ android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/donation_new"
-                    app:tint="@color/white_dark" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/donate_text"
@@ -282,7 +284,7 @@ android:gravity="center"
                 android:id="@+id/das_view8"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
 
             <RelativeLayout
                 android:id="@+id/transection_layout"
@@ -297,7 +299,7 @@ android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/transaction"
-                    app:tint="@color/white_dark" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/transection_text"
@@ -320,7 +322,8 @@ android:gravity="center"
                 android:id="@+id/das_view5"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
+
             <RelativeLayout
                 android:id="@+id/setting_layout"
                 android:layout_width="match_parent"
@@ -334,7 +337,7 @@ android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/setting"
-                    app:tint="@color/white_dark" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/setting_text"
@@ -352,11 +355,12 @@ android:gravity="center"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </RelativeLayout>
+
             <View
                 android:id="@+id/das_view6"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
 
             <RelativeLayout
                 android:id="@+id/about_layout"
@@ -371,7 +375,7 @@ android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/about_new"
-                    app:tint="@color/white_dark" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/about_text"
@@ -395,6 +399,7 @@ android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/black" />
+
             <RelativeLayout
                 android:id="@+id/contact_us_layout"
                 android:layout_width="match_parent"
@@ -408,7 +413,7 @@ android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/profile"
-                    app:tint="@color/white_dark" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/contact_us_text"
@@ -426,11 +431,13 @@ android:gravity="center"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </RelativeLayout>
+
             <View
                 android:id="@+id/das_view9"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
+
             <RelativeLayout
                 android:id="@+id/logout_layout"
                 android:layout_width="match_parent"
@@ -443,8 +450,8 @@ android:gravity="center"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/about_new"
-                    app:tint="@color/white_dark" />
+                    android:src="@drawable/logout_sm"
+                    android:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/logout_text"
